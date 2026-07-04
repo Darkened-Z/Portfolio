@@ -1,5 +1,6 @@
 // Shared types, data and helpers for the booking demo.
-// All persistence goes through localStorage with the "devora-booking-" prefix,
+// All persistence goes through localStorage with the "devora-booking-" prefix
+// (legacy namespace kept so returning visitors' demo state is preserved),
 // guarded for SSR.
 
 export type ServiceId = "haircut" | "beard" | "facial" | "color" | "massage";

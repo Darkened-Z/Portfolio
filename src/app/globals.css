@@ -1,23 +1,160 @@
 @import "tailwindcss";
 
+/* ------------------------------------------------------------------ */
+/* Design tokens — Magazine Crest (dark warm-black + cream + gold)     */
+/* ------------------------------------------------------------------ */
+
 :root {
-  --background: #020617;
-  --foreground: #f1f5f9;
+  /* Palette — dark editorial */
+  --ink:      #0f0f10;   /* near-black warm — primary surface */
+  --ink-2:    #171718;   /* one step lighter — panel bg */
+  --ink-3:    #1e1e1f;   /* card bg */
+
+  --cream:    #f0e6cf;   /* wheat cream — primary text on dark */
+  --cream-2:  #f7edd4;   /* brighter cream for highlights */
+  --cream-3:  #d8ceb3;   /* dimmer cream for body copy */
+  --cream-4:  #a89f88;   /* muted cream for meta labels */
+
+  --gold:     #ffd23e;   /* yellow highlighter accent */
+  --gold-2:   #eab308;   /* deeper gold for hover */
+
+  --paper:    #f4efdf;   /* light-break section: warm off-white */
+  --paper-ink:#1e1c17;   /* text color on paper break */
+
+  --line:     rgba(240, 230, 207, 0.14); /* hairlines on dark */
+  --line-strong: rgba(240, 230, 207, 0.32);
+  --paper-line: rgba(30, 28, 23, 0.16);  /* hairlines on paper */
+
+  /* Radius */
+  --r-card: 20px;
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur: 520ms;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-cream: var(--cream);
+  --color-cream-2: var(--cream-2);
+  --color-cream-3: var(--cream-3);
+  --color-cream-4: var(--cream-4);
+  --color-gold: var(--gold);
+  --color-paper: var(--paper);
+  --color-paper-ink: var(--paper-ink);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+
+  --font-display: var(--font-slab);
+  --font-sans: var(--font-hanken);
+  --font-crest: var(--font-cinzel);
+  --font-mono: var(--font-jetbrains);
+}
+
+/* ------------------------------------------------------------------ */
+/* Base                                                                */
+/* ------------------------------------------------------------------ */
+
+html {
+  background: var(--ink);
+  color: var(--cream);
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background: #6366f1;
-  color: white;
+  background: var(--gold);
+  color: var(--ink);
+}
+
+*:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Type utilities                                                      */
+/* ------------------------------------------------------------------ */
+
+.font-display {
+  font-family: var(--font-display), "Rockwell", "Roboto Slab", Georgia, serif;
+  letter-spacing: -0.01em;
+  line-height: 0.96;
+  font-weight: 900;
+}
+
+.font-crest {
+  font-family: var(--font-crest), Georgia, serif;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.font-mono-label {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--cream-4);
+}
+
+/* Yellow-highlighter mark on inline phrases (Insights-section signature) */
+.mark-gold {
+  background: linear-gradient(180deg, transparent 55%, rgba(255,210,62,0.85) 55%);
+  padding: 0 3px;
+  color: var(--cream-2);
+}
+
+/* Ornate wordmark divider line */
+.crest-rule {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--cream-4);
+}
+.crest-rule::before,
+.crest-rule::after {
+  content: "";
+  height: 1px;
+  width: 32px;
+  background: var(--cream-4);
+  opacity: 0.55;
+}
+
+/* Blinking availability dot */
+@keyframes soft-pulse {
+  0%, 100% { opacity: 0.95; }
+  50% { opacity: 0.35; }
+}
+.dot-live {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--gold);
+  animation: soft-pulse 2.2s var(--ease) infinite;
+  vertical-align: middle;
+}
+
+/* Underline that fades on hover */
+.link-underline {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 2px;
+  border-bottom: 1px solid currentColor;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.link-underline:hover {
+  color: var(--gold);
+  border-color: var(--gold);
 }

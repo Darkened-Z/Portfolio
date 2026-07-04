@@ -1,4 +1,4 @@
-// Data layer for the Devora ERP demo — types, seed data, persistence helpers.
+// Data layer for the ERP demo — types, seed data, persistence helpers.
 // All persistence is localStorage-backed and SSR-guarded.
 
 export type Product = {
