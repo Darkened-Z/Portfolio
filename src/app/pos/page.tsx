@@ -469,7 +469,7 @@ function ReceiptOverlay({ sale, onClose }: { sale: Sale; onClose: () => void }) 
         onClick={(e) => e.stopPropagation()}
       >
         <div className="text-center border-b border-dashed border-slate-300 pb-3 mb-3">
-          <div className="font-bold text-base tracking-wide">DEVORA BISTRO</div>
+          <div className="font-bold text-base tracking-wide">CORNER BISTRO</div>
           <div className="text-[11px] text-slate-500">Shop 12, Main Boulevard, Karachi</div>
           <div className="text-[11px] text-slate-500">+92 300 1234567</div>
         </div>
@@ -518,7 +518,7 @@ function ReceiptOverlay({ sale, onClose }: { sale: Sale; onClose: () => void }) 
         <div className="text-center text-[11px] text-slate-400 mt-4 border-t border-dashed border-slate-300 pt-3">
           Thank you for dining with us!
           <br />
-          Powered by Devora POS
+          Built by Zeeshan Khan
         </div>
         <button
           onClick={onClose}
@@ -750,7 +750,7 @@ export default function POSDemo() {
   /* ------------------------------------------------------------------ */
 
   return (
-    <DemoShell title="Devora POS" tagline="Restaurant point-of-sale · register, sales log & live dashboard">
+    <DemoShell title="Point of Sale" tagline="Restaurant point-of-sale · register, sales log & live dashboard">
       {/* Sub-header: store identity + live clock */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
         <div className="flex items-center gap-3">
@@ -758,7 +758,7 @@ export default function POSDemo() {
             🍔
           </div>
           <div>
-            <div className="font-semibold leading-tight">Devora Bistro</div>
+            <div className="font-semibold leading-tight">Corner Bistro</div>
             <div className="text-xs text-slate-400">Terminal 1 · Cashier: Zeeshan</div>
           </div>
         </div>
