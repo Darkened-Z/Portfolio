@@ -1,32 +1,11 @@
 import Link from "next/link";
-import ProductShowcase, {
-  type Product,
-} from "@/components/ProductShowcase";
 
 /* ------------------------------------------------------------------ */
 /* Data                                                                */
 /* ------------------------------------------------------------------ */
 
-// Featured client software — placed inside § 01 Practice / Custom Software.
-// Devora POS is featured in the hero portrait area instead of here.
-// Demo Gym appears as a compact live-client link row inside softwareDemos
-// (its dedicated screenshot is pending — server was down at last shot).
-const featuredSoftware: Product[] = [
-  {
-    slug: "adil-fuel-supply",
-    name: "Adil Fuel Supply",
-    tagline:
-      "Daily ledger system for a fuel supply operation — replaces three notebooks a week.",
-    description:
-      "Owner logs every drum, delivery and receivable. Balances close automatically at end of day. Built to match the exact shape of the paperwork it replaced.",
-    url: "https://demo.fuel.goxx.app/",
-    screenshot: "/work/demo-fuel.png",
-    stack: ["Next.js", "PostgreSQL"],
-    clientLabel: "Fuel supply · Karachi",
-  },
-];
-
-/* ------------------------------------------------------------------ */
+// Full software portfolio (real client work + embed windows + reference
+// demos) lives at /software. The landing keeps only a compact preview.
 
 type Demo = {
   n: string;
@@ -38,14 +17,16 @@ type Demo = {
   live?: boolean; // renders a small "LIVE CLIENT" chip instead of the default label
 };
 
+// Kept as a compact preview in the Custom Software tile; full software
+// portfolio (real client work + reference demos) lives at /software.
 const softwareDemos: Demo[] = [
   {
     n: "01",
     href: "https://demo.gym.goxx.app/",
     name: "Demo Gym",
     outcome:
-      "Front-desk + member portal for a neighbourhood gym. Staff run reception, payments and reports; members sign in with a code only.",
-    meta: "Gym · Karachi · Bilingual EN / اردو",
+      "Front-desk + member portal for a neighbourhood gym. Live client work.",
+    meta: "Gym · Karachi",
     external: true,
     live: true,
   },
@@ -53,15 +34,8 @@ const softwareDemos: Demo[] = [
     n: "02",
     href: "/money-tracker",
     name: "Money Tracker",
-    outcome: "Know exactly where the cash goes.",
-    meta: "Solo owner · Freelancer · Studio",
-  },
-  {
-    n: "03",
-    href: "/erp",
-    name: "ERP / Business Manager",
-    outcome: "Inventory, sales and staff on one screen.",
-    meta: "Wholesale · Small manufacturing",
+    outcome: "Reference implementation — try in browser.",
+    meta: "Solo owner · Freelancer",
   },
 ];
 
@@ -413,49 +387,38 @@ export default function Home() {
                   }}
                 />
 
-                {/* Real product — Devora POS in browser-frame chrome */}
-                <div className="absolute inset-0 flex flex-col p-6 pb-14">
-                  <div className="flex flex-1 flex-col overflow-hidden rounded-[6px] border border-[color:var(--cream)]/25 bg-[color:var(--ink)]">
-                    {/* Browser chrome */}
-                    <div className="flex items-center justify-between border-b border-[color:var(--line)] bg-[color:var(--ink-2)] px-3 py-2">
-                      <div className="flex items-center gap-1.5">
-                        <span className="h-2.5 w-2.5 rounded-full bg-[color:var(--cream)]/25" />
-                        <span className="h-2.5 w-2.5 rounded-full bg-[color:var(--cream)]/25" />
-                        <span className="h-2.5 w-2.5 rounded-full bg-[color:var(--gold)]" />
-                      </div>
-                      <div className="font-mono-label text-[9px] text-[color:var(--cream-4)]">
-                        devora.pos.goxx.app
-                      </div>
-                      <a
-                        href="https://devora.pos.goxx.app/login"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-mono-label text-[9px] text-[color:var(--cream-4)] transition-colors hover:text-[color:var(--gold)]"
-                      >
-                        Open ↗
-                      </a>
-                    </div>
-                    {/* Real screenshot — anchored left-top to show the DEVORA POS
-                        branding + hero copy, not the login form on the right */}
-                    <div className="relative flex-1 overflow-hidden bg-[color:var(--ink)]">
-                      <img
-                        src="/work/devora-pos.png"
-                        alt="Devora POS — restaurant point-of-sale, run your restaurant from one screen"
-                        className="absolute inset-0 h-full w-full object-cover object-left-top"
-                        loading="eager"
-                      />
+                {/* Portrait placeholder — pending Zeeshan's real photo */}
+                <div className="absolute inset-0 flex flex-col justify-between p-8 pb-14">
+                  <div className="flex items-start justify-between">
+                    <div className="font-mono-label">Portrait · Incoming</div>
+                    <div className="font-mono-label text-right text-[color:var(--gold)]">
+                      Photo pending
                     </div>
                   </div>
-                </div>
 
-                {/* Bottom caption — identity + live status, no floating tag */}
-                <div className="pointer-events-none absolute inset-x-6 bottom-4 flex items-end justify-between">
-                  <span className="font-mono-label">
-                    Featured · Devora POS
-                  </span>
-                  <span className="inline-flex items-center gap-2 font-mono-label">
-                    <span className="dot-live" /> Live client · 2023
-                  </span>
+                  <div className="flex flex-1 flex-col items-center justify-center gap-6 py-8">
+                    {/* Monogram */}
+                    <div className="font-crest text-[clamp(6rem,14vw,10rem)] leading-none tracking-[0.02em] text-[color:var(--cream)]">
+                      ZK
+                    </div>
+                    {/* Full name in slab */}
+                    <div className="font-display text-[clamp(1.25rem,2vw,1.75rem)] uppercase leading-tight text-[color:var(--cream)]">
+                      Zeeshan Khan
+                    </div>
+                    {/* Divider */}
+                    <div className="h-px w-20 bg-[color:var(--gold)]/60" />
+                    <div className="max-w-[24ch] text-center text-sm leading-relaxed text-[color:var(--cream-3)]">
+                      A real photograph goes here — sitting between the wordmark
+                      above and the byline below, like the reference site.
+                    </div>
+                  </div>
+
+                  <div className="flex items-end justify-between">
+                    <span className="font-mono-label">Studio of One</span>
+                    <span className="inline-flex items-center gap-2 font-mono-label">
+                      <span className="dot-live" /> Available · 2026
+                    </span>
+                  </div>
                 </div>
               </div>
             </aside>
@@ -614,37 +577,23 @@ export default function Home() {
               ))}
             </div>
 
-            {/* Featured client work — dark inset within paper section */}
-            <div className="mt-24 -mx-8 bg-[color:var(--ink)] px-8 py-16 text-[color:var(--cream)] sm:mt-28 sm:py-20">
-              <div className="mx-auto max-w-[1240px]">
-                <div className="mb-12 flex flex-col items-start gap-3 md:mb-14 md:flex-row md:items-baseline md:justify-between">
-                  <div>
-                    <div className="font-mono-label text-[color:var(--gold)]">
-                      Featured — Custom Software
-                    </div>
-                    <h3 className="font-display mt-3 text-[clamp(1.75rem,3.5vw,2.75rem)] uppercase leading-[1.05] text-[color:var(--cream)]">
-                      Shipped for real clients.
-                    </h3>
-                  </div>
-                  <p className="max-w-[42ch] text-sm leading-relaxed text-[color:var(--cream-3)] md:text-right">
-                    Two of them live below. Try each one embedded here, or open
-                    the standalone version in a new tab. Devora POS is featured
-                    at the top of the page.
-                  </p>
-                </div>
-
-                <div
-                  className={
-                    featuredSoftware.length === 1
-                      ? "mx-auto max-w-[720px]"
-                      : "grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10"
-                  }
+            {/* CTA to the dedicated /software route where real client work lives */}
+            <div className="mt-20 flex flex-col items-center gap-4 border-t border-[color:var(--paper-ink)]/15 pt-14 text-center">
+              <span className="font-mono-label text-[color:var(--paper-ink)]/60">
+                Real client work + live embeds + reference demos
+              </span>
+              <Link
+                href="/software"
+                className="group inline-flex items-center gap-4 bg-[color:var(--paper-ink)] px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.18em] text-[color:var(--paper)] transition-colors hover:bg-[color:var(--gold-2)] hover:text-[color:var(--paper-ink)]"
+              >
+                See the full software portfolio
+                <span
+                  aria-hidden
+                  className="transition-transform duration-500 group-hover:translate-x-1"
                 >
-                  {featuredSoftware.map((p) => (
-                    <ProductShowcase key={p.slug} product={p} />
-                  ))}
-                </div>
-              </div>
+                  →
+                </span>
+              </Link>
             </div>
           </div>
         </section>
