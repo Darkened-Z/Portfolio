@@ -7,20 +7,9 @@ import ProductShowcase, {
 /* Data                                                                */
 /* ------------------------------------------------------------------ */
 
-const selectedWork: Product[] = [
-  {
-    slug: "devora-pos",
-    name: "Devora POS",
-    tagline:
-      "Restaurant point-of-sale — take orders, fire tickets to the kitchen, settle bills, watch sales.",
-    description:
-      "Built for a small restaurant running counter-service on paper. Dine-in, takeaway and delivery in one screen. Sales log builds itself in the background.",
-    url: "https://devora.pos.goxx.app/login",
-    screenshot: "/work/devora-pos.png",
-    credentials: { user: "admin@demo", pass: "admin123" },
-    stack: ["Next.js", "Node", "PostgreSQL"],
-    clientLabel: "Restaurant · Karachi",
-  },
+// Featured client software — placed inside § 01 Practice / Custom Software.
+// Devora POS is featured in the hero portrait area instead of here.
+const featuredSoftware: Product[] = [
   {
     slug: "demo-gym",
     name: "Demo Gym",
@@ -40,8 +29,8 @@ const selectedWork: Product[] = [
       "Daily ledger system for a fuel supply operation — replaces three notebooks a week.",
     description:
       "Owner logs every drum, delivery and receivable. Balances close automatically at end of day. Built to match the exact shape of the paperwork it replaced.",
-    url: "https://adil.fuel.goxx.app/",
-    screenshot: "/work/adil-fuel.png",
+    url: "https://demo.fuel.goxx.app/",
+    screenshot: "/work/demo-fuel.png",
     stack: ["Next.js", "PostgreSQL"],
     clientLabel: "Fuel supply · Karachi",
   },
@@ -60,20 +49,13 @@ type Demo = {
 const softwareDemos: Demo[] = [
   {
     n: "01",
-    href: "/pos",
-    name: "Point of Sale",
-    outcome: "Checkout in three taps. The sales log builds itself.",
-    meta: "Retail · Café · Kiosk",
-  },
-  {
-    n: "02",
     href: "/money-tracker",
     name: "Money Tracker",
     outcome: "Know exactly where the cash goes.",
     meta: "Solo owner · Freelancer · Studio",
   },
   {
-    n: "03",
+    n: "02",
     href: "/erp",
     name: "ERP / Business Manager",
     outcome: "Inventory, sales and staff on one screen.",
@@ -429,87 +411,57 @@ export default function Home() {
                   }}
                 />
 
-                {/* Device composition — stylised POS/booking mock */}
-                <div className="absolute inset-0 flex items-center justify-center p-8">
-                  <div className="relative h-full w-full">
-                    {/* Laptop back */}
-                    <div className="absolute left-[8%] top-[16%] h-[62%] w-[76%] rounded-[8px] border border-[color:var(--cream)]/30 bg-[color:var(--ink)] p-4 shadow-[0_0_0_1px_rgba(240,230,207,0.06)]">
-                      <div className="flex items-center gap-1.5 border-b border-[color:var(--line)] pb-2">
-                        <span className="h-2 w-2 rounded-full bg-[color:var(--cream)]/30" />
-                        <span className="h-2 w-2 rounded-full bg-[color:var(--cream)]/30" />
-                        <span className="h-2 w-2 rounded-full bg-[color:var(--gold)]/80" />
+                {/* Real product — Devora POS in browser-frame chrome */}
+                <div className="absolute inset-0 flex flex-col p-6">
+                  <div className="flex flex-1 flex-col overflow-hidden rounded-[6px] border border-[color:var(--cream)]/25 bg-[color:var(--ink)]">
+                    {/* Browser chrome */}
+                    <div className="flex items-center justify-between border-b border-[color:var(--line)] bg-[color:var(--ink-2)] px-3 py-2">
+                      <div className="flex items-center gap-1.5">
+                        <span className="h-2.5 w-2.5 rounded-full bg-[color:var(--cream)]/25" />
+                        <span className="h-2.5 w-2.5 rounded-full bg-[color:var(--cream)]/25" />
+                        <span className="h-2.5 w-2.5 rounded-full bg-[color:var(--gold)]" />
                       </div>
-                      <div className="mt-3 font-crest text-[10px] text-[color:var(--cream-4)]">
-                        Point of Sale · Live
+                      <div className="font-mono-label text-[9px] text-[color:var(--cream-4)]">
+                        devora.pos.goxx.app
                       </div>
-                      <div className="mt-3 grid grid-cols-3 gap-2">
-                        {["Classic", "Zinger", "Fajita", "Pizza M", "Coke", "Fries"].map(
-                          (item, i) => (
-                            <div
-                              key={item}
-                              className="rounded border border-[color:var(--line)] bg-[color:var(--ink-2)] p-2 text-[10px] text-[color:var(--cream-3)]"
-                            >
-                              <div className="font-semibold text-[color:var(--cream)]">
-                                {item}
-                              </div>
-                              <div className="mt-1 text-[color:var(--gold)]">
-                                Rs {(i + 3) * 100}
-                              </div>
-                            </div>
-                          )
-                        )}
-                      </div>
-                      <div className="mt-3 flex items-center justify-between border-t border-[color:var(--line)] pt-2 text-[10px]">
-                        <span className="font-crest text-[color:var(--cream-4)]">
-                          Terminal 1
-                        </span>
-                        <span className="text-[color:var(--cream-3)]">
-                          Total ·{" "}
-                          <span className="font-semibold text-[color:var(--cream)]">
-                            Rs 1,750
-                          </span>
-                        </span>
-                      </div>
+                      <a
+                        href="https://devora.pos.goxx.app/login"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-mono-label text-[9px] text-[color:var(--cream-4)] transition-colors hover:text-[color:var(--gold)]"
+                      >
+                        Open ↗
+                      </a>
                     </div>
-
-                    {/* Phone front */}
-                    <div className="absolute bottom-[6%] right-[6%] h-[46%] w-[30%] rounded-[16px] border border-[color:var(--cream)]/30 bg-[color:var(--ink)] p-3">
-                      <div className="flex items-center justify-between text-[7px] text-[color:var(--cream-4)]">
-                        <span>10:19</span>
-                        <span>●●●</span>
-                      </div>
-                      <div className="mt-2 rounded bg-[color:var(--ink-2)] p-2 text-[8px] text-[color:var(--cream-3)]">
-                        <div className="text-[color:var(--gold)]">Bot</div>
-                        Hi! What can I get you?
-                      </div>
-                      <div className="mt-1 ml-4 rounded bg-[color:var(--cream)] p-2 text-[8px] text-[color:var(--ink)]">
-                        1x Zinger 🍔
-                      </div>
-                      <div className="mt-1 rounded bg-[color:var(--ink-2)] p-2 text-[8px] text-[color:var(--cream-3)]">
-                        <div className="text-[color:var(--gold)]">Bot</div>
-                        Confirmed. ETA 25m.
-                      </div>
+                    {/* Real screenshot */}
+                    <div className="relative flex-1 overflow-hidden">
+                      <img
+                        src="/work/devora-pos.png"
+                        alt="Devora POS — restaurant point-of-sale login page"
+                        className="absolute inset-0 h-full w-full object-cover object-top"
+                        loading="eager"
+                      />
                     </div>
+                  </div>
 
-                    {/* Notebook / tag */}
-                    <div className="absolute left-[4%] top-[6%] rotate-[-4deg] border border-[color:var(--cream)]/25 bg-[color:var(--ink-2)] px-4 py-3">
-                      <div className="font-crest text-[9px] text-[color:var(--cream-4)]">
-                        Est. 2023 · Karachi
-                      </div>
-                      <div className="font-display text-[18px] uppercase text-[color:var(--cream)]">
-                        Zeeshan Khan
-                      </div>
+                  {/* Rotated notebook tag — kept for identity flair */}
+                  <div className="pointer-events-none absolute left-[6%] top-[4%] rotate-[-4deg] border border-[color:var(--cream)]/25 bg-[color:var(--ink)] px-4 py-3 shadow-[0_4px_12px_rgba(0,0,0,0.4)]">
+                    <div className="font-crest text-[9px] text-[color:var(--cream-4)]">
+                      Est. 2023 · Karachi
+                    </div>
+                    <div className="font-display text-[18px] uppercase text-[color:var(--cream)]">
+                      Zeeshan Khan
                     </div>
                   </div>
                 </div>
 
                 {/* Bottom caption */}
-                <div className="absolute inset-x-6 bottom-6 flex items-end justify-between">
+                <div className="pointer-events-none absolute inset-x-6 bottom-3 flex items-end justify-between">
                   <span className="font-mono-label">
-                    Portrait: The work itself
+                    Featured · Devora POS
                   </span>
                   <span className="inline-flex items-center gap-2 font-mono-label">
-                    <span className="dot-live" /> Live · 2026
+                    <span className="dot-live" /> Live client
                   </span>
                 </div>
               </div>
@@ -535,54 +487,18 @@ export default function Home() {
         </section>
 
         {/* -------------------------------------------------------- */}
-        {/* Selected Work — real client products with embed windows   */}
+        {/* Core Competence — light-break, § 01, with nested demos    */}
+        {/* + featured client software (dark inset within paper)      */}
         {/* -------------------------------------------------------- */}
         <section
           id="work"
-          className="scroll-mt-20 border-b border-[color:var(--line)] bg-[color:var(--ink)]"
-        >
-          <div className="mx-auto max-w-[1400px] px-8 py-28">
-            <div className="grid grid-cols-12 gap-6 pb-16 md:pb-20">
-              <div className="col-span-12 md:col-span-4">
-                <div className="font-mono-label text-[color:var(--gold)]">
-                  § 01 — Selected Work
-                </div>
-              </div>
-              <div className="col-span-12 md:col-span-8">
-                <h2 className="font-display text-[clamp(2rem,5vw,4rem)] uppercase leading-[1.02] text-[color:var(--cream)]">
-                  Shipped for real
-                  <br />
-                  clients. Live now.
-                </h2>
-                <p className="mt-8 max-w-[54ch] text-[17px] leading-[1.75] text-[color:var(--cream-3)]">
-                  Two client products currently running in production. Try each
-                  one inside the page below — credentials are on the card, one
-                  click and you&rsquo;re in. Or open the standalone version in a
-                  new tab.
-                </p>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10">
-              {selectedWork.map((p) => (
-                <ProductShowcase key={p.slug} product={p} />
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* -------------------------------------------------------- */}
-        {/* Core Competence — light-break, § 02, with nested demos    */}
-        {/* -------------------------------------------------------- */}
-        <section
-          id="practice"
           className="scroll-mt-20 bg-[color:var(--paper)] text-[color:var(--paper-ink)]"
         >
           <div className="mx-auto max-w-[1400px] px-8 py-28">
             <div className="mx-auto mb-4 flex items-center justify-center gap-3">
               <span className="crest-rule" style={{ color: "var(--paper-ink)" }}>
                 <span className="font-crest text-[11px] text-[color:var(--paper-ink)]/70">
-                  § 02 — Practice
+                  § 01 — Practice
                 </span>
               </span>
             </div>
@@ -590,9 +506,9 @@ export default function Home() {
               CORE COMPETENCE
             </h2>
             <p className="mx-auto mt-8 max-w-[54ch] text-center text-base leading-[1.75] text-[color:var(--paper-ink)]/70">
-              Three disciplines under one roof — one builder, end-to-end. Every
-              demo below is a real, live application. Click it, break it, run a
-              real workflow start to finish.
+              Three disciplines under one roof — one builder, end-to-end.
+              Reference demos are hand-built and open right in the browser;
+              real client work is featured further down the section.
             </p>
 
             <div className="mt-20 grid grid-cols-1 gap-10 md:grid-cols-3">
@@ -676,6 +592,33 @@ export default function Home() {
                 </div>
               ))}
             </div>
+
+            {/* Featured client work — dark inset within paper section */}
+            <div className="mt-24 -mx-8 bg-[color:var(--ink)] px-8 py-16 text-[color:var(--cream)] sm:mt-28 sm:py-20">
+              <div className="mx-auto max-w-[1240px]">
+                <div className="mb-12 flex flex-col items-start gap-3 md:mb-14 md:flex-row md:items-baseline md:justify-between">
+                  <div>
+                    <div className="font-mono-label text-[color:var(--gold)]">
+                      Featured — Custom Software
+                    </div>
+                    <h3 className="font-display mt-3 text-[clamp(1.75rem,3.5vw,2.75rem)] uppercase leading-[1.05] text-[color:var(--cream)]">
+                      Shipped for real clients.
+                    </h3>
+                  </div>
+                  <p className="max-w-[42ch] text-sm leading-relaxed text-[color:var(--cream-3)] md:text-right">
+                    Two of them live below. Try each one embedded here, or open
+                    the standalone version in a new tab. Devora POS is featured
+                    at the top of the page.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10">
+                  {featuredSoftware.map((p) => (
+                    <ProductShowcase key={p.slug} product={p} />
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -685,7 +628,7 @@ export default function Home() {
         <section className="border-b border-[color:var(--line)] bg-[color:var(--ink-2)]">
           <div className="mx-auto max-w-[1400px] px-8 py-28">
             <div className="mx-auto max-w-[760px] text-center">
-              <div className="mb-6 font-mono-label">§ 03 — What clients say</div>
+              <div className="mb-6 font-mono-label">§ 02 — What clients say</div>
               <h2 className="font-display text-[clamp(2rem,4.5vw,3.5rem)] uppercase leading-[1.05] text-[color:var(--cream)]">
                 Working software.
                 <br />
@@ -727,7 +670,7 @@ export default function Home() {
         <section id="insights" className="scroll-mt-20 border-b border-[color:var(--line)]">
           <div className="mx-auto max-w-[1400px] px-8 py-28">
             <div className="mb-14 flex flex-col items-start gap-4">
-              <div className="font-mono-label">§ 04 — Insights</div>
+              <div className="font-mono-label">§ 03 — Insights</div>
               <h2 className="font-display text-[clamp(2rem,4.5vw,3.5rem)] uppercase text-[color:var(--cream)]">
                 Thoughts on solo software,
                 <br />
@@ -806,7 +749,7 @@ export default function Home() {
         >
           <div className="mx-auto max-w-[1400px] px-8 py-32">
             <div className="mx-auto max-w-[880px] text-center">
-              <div className="mb-6 font-mono-label">§ 05 — Contact</div>
+              <div className="mb-6 font-mono-label">§ 04 — Contact</div>
               <h2 className="font-display text-[clamp(2.5rem,6vw,5.5rem)] uppercase leading-[1.02] text-[color:var(--cream)]">
                 Got a process
                 <br />
