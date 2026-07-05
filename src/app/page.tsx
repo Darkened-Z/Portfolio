@@ -9,19 +9,9 @@ import ProductShowcase, {
 
 // Featured client software — placed inside § 01 Practice / Custom Software.
 // Devora POS is featured in the hero portrait area instead of here.
+// Demo Gym appears as a compact live-client link row inside softwareDemos
+// (its dedicated screenshot is pending — server was down at last shot).
 const featuredSoftware: Product[] = [
-  {
-    slug: "demo-gym",
-    name: "Demo Gym",
-    tagline:
-      "Front-desk + member portal for a neighbourhood gym — one clean box, staff on one side, members on the other.",
-    description:
-      "Staff run reception, payments, attendance and reports. Members sign in with just a code (no password) to see their own profile, plan and dues. Bilingual EN / اردو.",
-    url: "https://demo.gym.goxx.app/",
-    screenshot: "/work/demo-gym-placeholder.svg",
-    stack: ["Next.js", "PostgreSQL", "i18n"],
-    clientLabel: "Gym · Karachi",
-  },
   {
     slug: "adil-fuel-supply",
     name: "Adil Fuel Supply",
@@ -44,18 +34,30 @@ type Demo = {
   name: string;
   outcome: string;
   meta: string;
+  external?: boolean;
+  live?: boolean; // renders a small "LIVE CLIENT" chip instead of the default label
 };
 
 const softwareDemos: Demo[] = [
   {
     n: "01",
+    href: "https://demo.gym.goxx.app/",
+    name: "Demo Gym",
+    outcome:
+      "Front-desk + member portal for a neighbourhood gym. Staff run reception, payments and reports; members sign in with a code only.",
+    meta: "Gym · Karachi · Bilingual EN / اردو",
+    external: true,
+    live: true,
+  },
+  {
+    n: "02",
     href: "/money-tracker",
     name: "Money Tracker",
     outcome: "Know exactly where the cash goes.",
     meta: "Solo owner · Freelancer · Studio",
   },
   {
-    n: "02",
+    n: "03",
     href: "/erp",
     name: "ERP / Business Manager",
     outcome: "Inventory, sales and staff on one screen.",
@@ -412,7 +414,7 @@ export default function Home() {
                 />
 
                 {/* Real product — Devora POS in browser-frame chrome */}
-                <div className="absolute inset-0 flex flex-col p-6">
+                <div className="absolute inset-0 flex flex-col p-6 pb-14">
                   <div className="flex flex-1 flex-col overflow-hidden rounded-[6px] border border-[color:var(--cream)]/25 bg-[color:var(--ink)]">
                     {/* Browser chrome */}
                     <div className="flex items-center justify-between border-b border-[color:var(--line)] bg-[color:var(--ink-2)] px-3 py-2">
@@ -433,35 +435,26 @@ export default function Home() {
                         Open ↗
                       </a>
                     </div>
-                    {/* Real screenshot */}
-                    <div className="relative flex-1 overflow-hidden">
+                    {/* Real screenshot — anchored left-top to show the DEVORA POS
+                        branding + hero copy, not the login form on the right */}
+                    <div className="relative flex-1 overflow-hidden bg-[color:var(--ink)]">
                       <img
                         src="/work/devora-pos.png"
-                        alt="Devora POS — restaurant point-of-sale login page"
-                        className="absolute inset-0 h-full w-full object-cover object-top"
+                        alt="Devora POS — restaurant point-of-sale, run your restaurant from one screen"
+                        className="absolute inset-0 h-full w-full object-cover object-left-top"
                         loading="eager"
                       />
                     </div>
                   </div>
-
-                  {/* Rotated notebook tag — kept for identity flair */}
-                  <div className="pointer-events-none absolute left-[6%] top-[4%] rotate-[-4deg] border border-[color:var(--cream)]/25 bg-[color:var(--ink)] px-4 py-3 shadow-[0_4px_12px_rgba(0,0,0,0.4)]">
-                    <div className="font-crest text-[9px] text-[color:var(--cream-4)]">
-                      Est. 2023 · Karachi
-                    </div>
-                    <div className="font-display text-[18px] uppercase text-[color:var(--cream)]">
-                      Zeeshan Khan
-                    </div>
-                  </div>
                 </div>
 
-                {/* Bottom caption */}
-                <div className="pointer-events-none absolute inset-x-6 bottom-3 flex items-end justify-between">
+                {/* Bottom caption — identity + live status, no floating tag */}
+                <div className="pointer-events-none absolute inset-x-6 bottom-4 flex items-end justify-between">
                   <span className="font-mono-label">
                     Featured · Devora POS
                   </span>
                   <span className="inline-flex items-center gap-2 font-mono-label">
-                    <span className="dot-live" /> Live client
+                    <span className="dot-live" /> Live client · 2023
                   </span>
                 </div>
               </div>
@@ -536,19 +529,29 @@ export default function Home() {
                       className="w-full space-y-3 border-t pt-5 text-left"
                       style={{ borderColor: "rgba(30, 28, 23, 0.16)" }}
                     >
-                      {c.demos.map((demo) => (
-                        <li key={demo.href}>
-                          <Link
-                            href={demo.href}
-                            className="group flex items-baseline justify-between gap-3 py-1.5"
-                          >
+                      {c.demos.map((demo) => {
+                        const rowClass =
+                          "group flex items-baseline justify-between gap-3 py-1.5";
+                        const inner = (
+                          <>
                             <span className="flex items-baseline gap-3">
                               <span className="font-crest text-[11px] text-[color:var(--paper-ink)]/45">
                                 {demo.n}
                               </span>
                               <span>
-                                <span className="block font-display text-base uppercase leading-tight text-[color:var(--paper-ink)] transition-colors group-hover:text-[color:var(--gold-2)]">
-                                  {demo.name}
+                                <span className="flex flex-wrap items-baseline gap-2">
+                                  <span className="block font-display text-base uppercase leading-tight text-[color:var(--paper-ink)] transition-colors group-hover:text-[color:var(--gold-2)]">
+                                    {demo.name}
+                                  </span>
+                                  {demo.live && (
+                                    <span className="inline-flex items-center gap-1 border border-[color:var(--paper-ink)]/25 bg-[color:var(--paper-ink)]/5 px-1.5 py-[1px] font-mono-label text-[9px] text-[color:var(--paper-ink)]/70">
+                                      <span
+                                        className="inline-block h-1.5 w-1.5 rounded-full bg-[color:var(--gold-2)]"
+                                        aria-hidden
+                                      />
+                                      Live client
+                                    </span>
+                                  )}
                                 </span>
                                 <span className="mt-1 block text-xs leading-snug text-[color:var(--paper-ink)]/60">
                                   {demo.outcome}
@@ -559,11 +562,29 @@ export default function Home() {
                               aria-hidden
                               className="shrink-0 text-xs font-medium uppercase tracking-widest text-[color:var(--paper-ink)]/60 transition-transform duration-500 group-hover:translate-x-1"
                             >
-                              →
+                              {demo.external ? "↗" : "→"}
                             </span>
-                          </Link>
-                        </li>
-                      ))}
+                          </>
+                        );
+                        return (
+                          <li key={demo.href}>
+                            {demo.external ? (
+                              <a
+                                href={demo.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={rowClass}
+                              >
+                                {inner}
+                              </a>
+                            ) : (
+                              <Link href={demo.href} className={rowClass}>
+                                {inner}
+                              </Link>
+                            )}
+                          </li>
+                        );
+                      })}
                     </ul>
                   ) : (
                     <div
@@ -612,7 +633,13 @@ export default function Home() {
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10">
+                <div
+                  className={
+                    featuredSoftware.length === 1
+                      ? "mx-auto max-w-[720px]"
+                      : "grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10"
+                  }
+                >
                   {featuredSoftware.map((p) => (
                     <ProductShowcase key={p.slug} product={p} />
                   ))}
