@@ -1,7 +1,52 @@
 import Link from "next/link";
+import ProductShowcase, {
+  type Product,
+} from "@/components/ProductShowcase";
 
 /* ------------------------------------------------------------------ */
 /* Data                                                                */
+/* ------------------------------------------------------------------ */
+
+const selectedWork: Product[] = [
+  {
+    slug: "devora-pos",
+    name: "Devora POS",
+    tagline:
+      "Restaurant point-of-sale — take orders, fire tickets to the kitchen, settle bills, watch sales.",
+    description:
+      "Built for a small restaurant running counter-service on paper. Dine-in, takeaway and delivery in one screen. Sales log builds itself in the background.",
+    url: "https://devora.pos.goxx.app/login",
+    screenshot: "/work/devora-pos.png",
+    credentials: { user: "admin@demo", pass: "admin123" },
+    stack: ["Next.js", "Node", "PostgreSQL"],
+    clientLabel: "Restaurant · Karachi",
+  },
+  {
+    slug: "demo-gym",
+    name: "Demo Gym",
+    tagline:
+      "Front-desk + member portal for a neighbourhood gym — one clean box, staff on one side, members on the other.",
+    description:
+      "Staff run reception, payments, attendance and reports. Members sign in with just a code (no password) to see their own profile, plan and dues. Bilingual EN / اردو.",
+    url: "https://demo.gym.goxx.app/",
+    screenshot: "/work/demo-gym-placeholder.svg",
+    stack: ["Next.js", "PostgreSQL", "i18n"],
+    clientLabel: "Gym · Karachi",
+  },
+  {
+    slug: "adil-fuel-supply",
+    name: "Adil Fuel Supply",
+    tagline:
+      "Daily ledger system for a fuel supply operation — replaces three notebooks a week.",
+    description:
+      "Owner logs every drum, delivery and receivable. Balances close automatically at end of day. Built to match the exact shape of the paperwork it replaced.",
+    url: "https://adil.fuel.goxx.app/",
+    screenshot: "/work/adil-fuel.png",
+    stack: ["Next.js", "PostgreSQL"],
+    clientLabel: "Fuel supply · Karachi",
+  },
+];
+
 /* ------------------------------------------------------------------ */
 
 type Demo = {
@@ -236,7 +281,7 @@ export default function Home() {
         {/* Hero — dark, left-heavy, portrait slot on the right       */}
         {/* -------------------------------------------------------- */}
         <section className="relative">
-          <div className="mx-auto grid max-w-[1400px] grid-cols-12 gap-10 px-8 pb-24 pt-16 md:pt-24">
+          <div className="mx-auto grid max-w-[1400px] grid-cols-12 gap-x-3 gap-y-10 px-5 pb-24 pt-16 sm:px-8 md:pt-24 lg:gap-x-10">
             {/* Left column — crest, headline, body */}
             <div className="col-span-12 lg:col-span-7 lg:pt-8">
               {/* Ornate crest wordmark */}
@@ -266,7 +311,7 @@ export default function Home() {
                 </span>
               </div>
 
-              <h1 className="font-display mt-14 text-[clamp(3rem,7vw,6.5rem)] uppercase leading-[0.98] text-[color:var(--cream)]">
+              <h1 className="font-display mt-14 text-[clamp(2.25rem,10vw,6.5rem)] uppercase leading-[0.98] text-[color:var(--cream)]">
                 Scale
                 <br />
                 Your Business.
@@ -274,7 +319,7 @@ export default function Home() {
                 <span className="text-[color:var(--gold)]">Today.</span>
               </h1>
 
-              <p className="font-crest mt-8 max-w-[46ch] text-[clamp(0.95rem,1.35vw,1.25rem)] leading-[1.4] text-[color:var(--cream-3)]">
+              <p className="font-crest mt-8 max-w-[46ch] text-[clamp(0.7rem,2vw,1.25rem)] leading-[1.5] text-[color:var(--cream-3)] tracking-[0.16em] sm:tracking-[0.32em]">
                 Software. Automation. Websites.
               </p>
 
@@ -295,41 +340,55 @@ export default function Home() {
                 live demo — click it, break it, try to buy something.
               </p>
 
-              {/* Award / trust badge row (placeholder crests) */}
-              <div className="mt-10 flex flex-wrap items-center gap-5">
-                {[
-                  { label: "05\nProducts" },
-                  { label: "100%\nLive" },
-                  { label: "01\nBuilder" },
-                  { label: "72h\nFirst cut" },
-                  { label: "PK\nBased" },
-                ].map((b) => (
-                  <div
-                    key={b.label}
-                    className="flex flex-col items-center justify-center"
-                  >
-                    <svg
-                      viewBox="0 0 60 76"
-                      className="h-16 w-12 text-[color:var(--cream)]"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.25"
+              {/* Milestone strip */}
+              <div className="mt-12 border-y border-[color:var(--line)]">
+                <dl className="grid grid-cols-2 divide-x divide-[color:var(--line)] sm:grid-cols-3 lg:grid-cols-5">
+                  {[
+                    {
+                      value: "3+ YRS",
+                      label: "Engineering at Cybrix",
+                      accent: false,
+                    },
+                    {
+                      value: "03",
+                      label: "Practice areas · Software · Automation · Websites",
+                      accent: false,
+                    },
+                    {
+                      value: "7 DAYS",
+                      label: "From brief to first cut",
+                      accent: false,
+                    },
+                    {
+                      value: "24 HRS",
+                      label: "Reply time on a brief",
+                      accent: false,
+                    },
+                    {
+                      value: "0",
+                      label: "Middlemen · Straight to the builder",
+                      accent: true,
+                    },
+                  ].map((m) => (
+                    <div
+                      key={m.value}
+                      className="flex flex-col gap-2 border-t border-[color:var(--line)] px-4 py-5 first:border-t-0 sm:border-t-0"
                     >
-                      <path
-                        d="M6 4 H54 V56 L30 72 L6 56 Z"
-                        fill="var(--cream)"
-                        fillOpacity="0.06"
-                      />
-                      <path
-                        d="M12 12 H48 V52 L30 64 L12 52 Z"
-                        strokeOpacity="0.55"
-                      />
-                    </svg>
-                    <span className="-mt-14 whitespace-pre text-center font-crest text-[9px] leading-[1.3] text-[color:var(--cream-2)]">
-                      {b.label}
-                    </span>
-                  </div>
-                ))}
+                      <dt
+                        className={`font-display text-[clamp(1.5rem,2.4vw,2.25rem)] leading-none ${
+                          m.accent
+                            ? "text-[color:var(--gold)]"
+                            : "text-[color:var(--cream)]"
+                        }`}
+                      >
+                        {m.value}
+                      </dt>
+                      <dd className="font-mono-label leading-[1.35] text-[color:var(--cream-4)]">
+                        {m.label}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
               </div>
 
               <div className="mt-14 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-8">
@@ -350,7 +409,7 @@ export default function Home() {
             </div>
 
             {/* Right column — portrait / device composition slot */}
-            <aside className="col-span-12 lg:col-span-5">
+            <aside className="hidden lg:block col-span-12 lg:col-span-5">
               <div className="relative h-[560px] w-full overflow-hidden rounded-[8px] bg-[color:var(--ink-2)] lg:h-[640px]">
                 {/* Diagonal gradient wash */}
                 <div
@@ -476,17 +535,54 @@ export default function Home() {
         </section>
 
         {/* -------------------------------------------------------- */}
-        {/* Core Competence — light-break, § 01, with nested demos    */}
+        {/* Selected Work — real client products with embed windows   */}
         {/* -------------------------------------------------------- */}
         <section
           id="work"
+          className="scroll-mt-20 border-b border-[color:var(--line)] bg-[color:var(--ink)]"
+        >
+          <div className="mx-auto max-w-[1400px] px-8 py-28">
+            <div className="grid grid-cols-12 gap-6 pb-16 md:pb-20">
+              <div className="col-span-12 md:col-span-4">
+                <div className="font-mono-label text-[color:var(--gold)]">
+                  § 01 — Selected Work
+                </div>
+              </div>
+              <div className="col-span-12 md:col-span-8">
+                <h2 className="font-display text-[clamp(2rem,5vw,4rem)] uppercase leading-[1.02] text-[color:var(--cream)]">
+                  Shipped for real
+                  <br />
+                  clients. Live now.
+                </h2>
+                <p className="mt-8 max-w-[54ch] text-[17px] leading-[1.75] text-[color:var(--cream-3)]">
+                  Two client products currently running in production. Try each
+                  one inside the page below — credentials are on the card, one
+                  click and you&rsquo;re in. Or open the standalone version in a
+                  new tab.
+                </p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10">
+              {selectedWork.map((p) => (
+                <ProductShowcase key={p.slug} product={p} />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* -------------------------------------------------------- */}
+        {/* Core Competence — light-break, § 02, with nested demos    */}
+        {/* -------------------------------------------------------- */}
+        <section
+          id="practice"
           className="scroll-mt-20 bg-[color:var(--paper)] text-[color:var(--paper-ink)]"
         >
           <div className="mx-auto max-w-[1400px] px-8 py-28">
             <div className="mx-auto mb-4 flex items-center justify-center gap-3">
               <span className="crest-rule" style={{ color: "var(--paper-ink)" }}>
                 <span className="font-crest text-[11px] text-[color:var(--paper-ink)]/70">
-                  § 01 — Practice
+                  § 02 — Practice
                 </span>
               </span>
             </div>
@@ -589,7 +685,7 @@ export default function Home() {
         <section className="border-b border-[color:var(--line)] bg-[color:var(--ink-2)]">
           <div className="mx-auto max-w-[1400px] px-8 py-28">
             <div className="mx-auto max-w-[760px] text-center">
-              <div className="mb-6 font-mono-label">§ 02 — What clients say</div>
+              <div className="mb-6 font-mono-label">§ 03 — What clients say</div>
               <h2 className="font-display text-[clamp(2rem,4.5vw,3.5rem)] uppercase leading-[1.05] text-[color:var(--cream)]">
                 Working software.
                 <br />
@@ -631,7 +727,7 @@ export default function Home() {
         <section id="insights" className="scroll-mt-20 border-b border-[color:var(--line)]">
           <div className="mx-auto max-w-[1400px] px-8 py-28">
             <div className="mb-14 flex flex-col items-start gap-4">
-              <div className="font-mono-label">§ 03 — Insights</div>
+              <div className="font-mono-label">§ 04 — Insights</div>
               <h2 className="font-display text-[clamp(2rem,4.5vw,3.5rem)] uppercase text-[color:var(--cream)]">
                 Thoughts on solo software,
                 <br />
@@ -710,7 +806,7 @@ export default function Home() {
         >
           <div className="mx-auto max-w-[1400px] px-8 py-32">
             <div className="mx-auto max-w-[880px] text-center">
-              <div className="mb-6 font-mono-label">§ 04 — Contact</div>
+              <div className="mb-6 font-mono-label">§ 05 — Contact</div>
               <h2 className="font-display text-[clamp(2.5rem,6vw,5.5rem)] uppercase leading-[1.02] text-[color:var(--cream)]">
                 Got a process
                 <br />
