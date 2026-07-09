@@ -72,7 +72,7 @@ export function findItem(id: number): MenuItem | undefined {
 }
 
 export function formatRs(n: number): string {
-  return "Rs " + n.toLocaleString("en-US");
+  return "Rs " + n.toLocaleString("en-PK");
 }
 
 export function orderNo(order: Order): string {

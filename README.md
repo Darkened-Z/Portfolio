@@ -7,7 +7,7 @@ Freelance software engineer. Solo builder shipping working POS, booking, ERP and
 
 ## Stack
 
-Next.js 16 (App Router, Turbopack) · React 19 · TypeScript · Tailwind v4
+Next.js 16 (App Router, webpack dev) · React 19 · TypeScript · Tailwind v4
 
 ## Local dev
 
@@ -20,7 +20,8 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Routes
 
-- `/` — landing (hero, work, testimonials, insights, competencies, contact)
+- `/` — landing (hero, competencies, insights, contact)
+- `/software` — full software portfolio (live client work + reference demos)
 - `/pos` — Point of Sale demo
 - `/money-tracker` — Money tracker demo
 - `/order-bot` — WhatsApp order bot demo

@@ -58,23 +58,6 @@ const automationDemos: Demo[] = [
 
 const websiteDemos: Demo[] = [];
 
-const testimonials = [
-  {
-    quote:
-      "He turned three notebooks and a WhatsApp group into one screen. My Sunday paperwork disappeared.",
-    author: "Placeholder — pilot client",
-    role: "Small retail, Karachi",
-    initials: "PC",
-  },
-  {
-    quote:
-      "The order bot took over the 11pm messages. I stopped losing late-night sales inside two weeks.",
-    author: "Placeholder — pilot client",
-    role: "Food & delivery",
-    initials: "FD",
-  },
-];
-
 const competencies = [
   {
     label: "Custom Software",
@@ -214,15 +197,30 @@ export default function Home() {
           </a>
 
           <nav className="hidden items-center gap-9 md:flex">
-            {["Work", "Insights", "Contact"].map((label) => (
-              <a
-                key={label}
-                href={`#${label.toLowerCase()}`}
-                className="font-crest text-[11px] text-[color:var(--cream-3)] transition-colors hover:text-[color:var(--gold)]"
-              >
-                {label}
-              </a>
-            ))}
+            <a
+              href="#work"
+              className="font-crest text-[11px] text-[color:var(--cream-3)] transition-colors hover:text-[color:var(--gold)]"
+            >
+              Work
+            </a>
+            <Link
+              href="/software"
+              className="font-crest text-[11px] text-[color:var(--cream-3)] transition-colors hover:text-[color:var(--gold)]"
+            >
+              Software
+            </Link>
+            <a
+              href="#insights"
+              className="font-crest text-[11px] text-[color:var(--cream-3)] transition-colors hover:text-[color:var(--gold)]"
+            >
+              Insights
+            </a>
+            <a
+              href="#contact"
+              className="font-crest text-[11px] text-[color:var(--cream-3)] transition-colors hover:text-[color:var(--gold)]"
+            >
+              Contact
+            </a>
           </nav>
 
           <a
@@ -236,12 +234,11 @@ export default function Home() {
 
       <main id="top">
         {/* -------------------------------------------------------- */}
-        {/* Hero — dark, left-heavy, portrait slot on the right       */}
+        {/* Hero — dark, single-column editorial layout               */}
         {/* -------------------------------------------------------- */}
         <section className="relative">
-          <div className="mx-auto grid max-w-[1400px] grid-cols-12 gap-x-3 gap-y-10 px-5 pb-24 pt-16 sm:px-8 md:pt-24 lg:gap-x-10">
-            {/* Left column — crest, headline, body */}
-            <div className="col-span-12 lg:col-span-7 lg:pt-8">
+          <div className="mx-auto max-w-[1100px] px-5 pb-24 pt-16 sm:px-8 md:pt-24">
+            <div className="lg:pt-8">
               {/* Ornate crest wordmark */}
               <div className="flex flex-col items-start gap-3">
                 <svg
@@ -366,62 +363,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right column — portrait / device composition slot */}
-            <aside className="hidden lg:block col-span-12 lg:col-span-5">
-              <div className="relative h-[560px] w-full overflow-hidden rounded-[8px] bg-[color:var(--ink-2)] lg:h-[640px]">
-                {/* Diagonal gradient wash */}
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    background:
-                      "radial-gradient(70% 60% at 70% 40%, rgba(255,210,62,0.10), transparent 65%)",
-                  }}
-                />
-                {/* Grid pattern */}
-                <div
-                  className="absolute inset-0 opacity-40"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(to right, rgba(240,230,207,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(240,230,207,0.05) 1px, transparent 1px)",
-                    backgroundSize: "40px 40px",
-                  }}
-                />
-
-                {/* Portrait placeholder — pending Zeeshan's real photo */}
-                <div className="absolute inset-0 flex flex-col justify-between p-8 pb-14">
-                  <div className="flex items-start justify-between">
-                    <div className="font-mono-label">Portrait · Incoming</div>
-                    <div className="font-mono-label text-right text-[color:var(--gold)]">
-                      Photo pending
-                    </div>
-                  </div>
-
-                  <div className="flex flex-1 flex-col items-center justify-center gap-6 py-8">
-                    {/* Monogram */}
-                    <div className="font-crest text-[clamp(6rem,14vw,10rem)] leading-none tracking-[0.02em] text-[color:var(--cream)]">
-                      ZK
-                    </div>
-                    {/* Full name in slab */}
-                    <div className="font-display text-[clamp(1.25rem,2vw,1.75rem)] uppercase leading-tight text-[color:var(--cream)]">
-                      Zeeshan Khan
-                    </div>
-                    {/* Divider */}
-                    <div className="h-px w-20 bg-[color:var(--gold)]/60" />
-                    <div className="max-w-[24ch] text-center text-sm leading-relaxed text-[color:var(--cream-3)]">
-                      A real photograph goes here — sitting between the wordmark
-                      above and the byline below, like the reference site.
-                    </div>
-                  </div>
-
-                  <div className="flex items-end justify-between">
-                    <span className="font-mono-label">Studio of One</span>
-                    <span className="inline-flex items-center gap-2 font-mono-label">
-                      <span className="dot-live" /> Available · 2026
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </aside>
           </div>
         </section>
 
@@ -599,54 +540,12 @@ export default function Home() {
         </section>
 
         {/* -------------------------------------------------------- */}
-        {/* Testimonials — round-photo placeholders + italic quotes   */}
-        {/* -------------------------------------------------------- */}
-        <section className="border-b border-[color:var(--line)] bg-[color:var(--ink-2)]">
-          <div className="mx-auto max-w-[1400px] px-8 py-28">
-            <div className="mx-auto max-w-[760px] text-center">
-              <div className="mb-6 font-mono-label">§ 02 — What clients say</div>
-              <h2 className="font-display text-[clamp(2rem,4.5vw,3.5rem)] uppercase leading-[1.05] text-[color:var(--cream)]">
-                Working software.
-                <br />
-                Nothing to translate.
-              </h2>
-            </div>
-
-            <div className="mt-16 grid gap-10 md:grid-cols-2">
-              {testimonials.map((t) => (
-                <figure
-                  key={t.initials}
-                  className="flex flex-col items-center gap-6 text-center"
-                >
-                  <div className="flex h-24 w-24 items-center justify-center rounded-full border border-[color:var(--line-strong)] bg-[color:var(--ink)] font-crest text-lg text-[color:var(--cream-3)]">
-                    {t.initials}
-                  </div>
-                  <blockquote className="font-display italic text-[color:var(--cream)] text-[clamp(1.25rem,2vw,1.75rem)] leading-snug max-w-[42ch]">
-                    &ldquo;{t.quote}&rdquo;
-                  </blockquote>
-                  <figcaption className="flex flex-col items-center gap-1">
-                    <span className="text-sm font-semibold text-[color:var(--cream)]">
-                      {t.author}
-                    </span>
-                    <span className="font-mono-label">{t.role}</span>
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-
-            <p className="mt-14 text-center font-mono-label">
-              Pilot testimonials · Real names + faces coming as projects ship
-            </p>
-          </div>
-        </section>
-
-        {/* -------------------------------------------------------- */}
         {/* Insights — rounded dark card with yellow highlighter      */}
         {/* -------------------------------------------------------- */}
         <section id="insights" className="scroll-mt-20 border-b border-[color:var(--line)]">
           <div className="mx-auto max-w-[1400px] px-8 py-28">
             <div className="mb-14 flex flex-col items-start gap-4">
-              <div className="font-mono-label">§ 03 — Insights</div>
+              <div className="font-mono-label">§ 02 — Insights</div>
               <h2 className="font-display text-[clamp(2rem,4.5vw,3.5rem)] uppercase text-[color:var(--cream)]">
                 Thoughts on solo software,
                 <br />
@@ -725,7 +624,7 @@ export default function Home() {
         >
           <div className="mx-auto max-w-[1400px] px-8 py-32">
             <div className="mx-auto max-w-[880px] text-center">
-              <div className="mb-6 font-mono-label">§ 04 — Contact</div>
+              <div className="mb-6 font-mono-label">§ 03 — Contact</div>
               <h2 className="font-display text-[clamp(2.5rem,6vw,5.5rem)] uppercase leading-[1.02] text-[color:var(--cream)]">
                 Got a process
                 <br />
