@@ -1,7 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+// Some third-party sites refuse embedding via X-Frame-Options / CSP
+// frame-ancestors. The iframe stays blank with no error event, so we
+// surface a fallback CTA if `onLoad` never fires within this window.
+const IFRAME_LOAD_TIMEOUT_MS = 6000;
 
 export type Product = {
   slug: string;
@@ -17,7 +22,21 @@ export type Product = {
 
 export default function ProductShowcase({ product }: { product: Product }) {
   const [live, setLive] = useState(false);
+  const [frameLoaded, setFrameLoaded] = useState(false);
+  const [frameBlocked, setFrameBlocked] = useState(false);
   const [copied, setCopied] = useState<"user" | "pass" | null>(null);
+
+  useEffect(() => {
+    if (!live) {
+      setFrameLoaded(false);
+      setFrameBlocked(false);
+      return;
+    }
+    const t = window.setTimeout(() => {
+      if (!frameLoaded) setFrameBlocked(true);
+    }, IFRAME_LOAD_TIMEOUT_MS);
+    return () => window.clearTimeout(t);
+  }, [live, frameLoaded]);
 
   const copy = async (kind: "user" | "pass", value: string) => {
     try {
@@ -34,13 +53,37 @@ export default function ProductShowcase({ product }: { product: Product }) {
       {/* Preview surface */}
       <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-[color:var(--line)] bg-[color:var(--ink-3)]">
         {live ? (
-          <iframe
-            src={product.url}
-            title={product.name}
-            className="absolute inset-0 h-full w-full"
-            loading="lazy"
-            sandbox="allow-forms allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox"
-          />
+          <>
+            <iframe
+              src={product.url}
+              title={product.name}
+              className="absolute inset-0 h-full w-full"
+              loading="lazy"
+              sandbox="allow-forms allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox"
+              onLoad={() => setFrameLoaded(true)}
+            />
+            {frameBlocked && !frameLoaded && (
+              <div className="absolute inset-0 z-20 flex items-center justify-center bg-[color:var(--ink)]/85 p-6 text-center">
+                <div className="max-w-xs">
+                  <div className="font-mono-label mb-3 text-[color:var(--gold)]">
+                    Embed refused
+                  </div>
+                  <p className="mb-5 text-sm leading-relaxed text-[color:var(--cream-3)]">
+                    This site blocks being embedded in another window.
+                    Open it in a new tab to try it.
+                  </p>
+                  <a
+                    href={product.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 border border-[color:var(--gold)] bg-[color:var(--ink)]/90 px-5 py-2.5 text-sm font-semibold uppercase tracking-[0.22em] text-[color:var(--gold)]"
+                  >
+                    Open in new tab ↗
+                  </a>
+                </div>
+              </div>
+            )}
+          </>
         ) : (
           <>
             <Image
