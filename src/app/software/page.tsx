@@ -5,7 +5,7 @@ import ProductShowcase, {
 } from "@/components/ProductShowcase";
 
 export const metadata: Metadata = {
-  title: "Software work — Zeeshan Khan",
+  title: "Software work",
   description:
     "Custom software shipped for real clients — Devora POS, Adil Fuel Supply, Demo Gym — plus reference implementations you can try in the browser.",
 };
