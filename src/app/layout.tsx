@@ -27,10 +27,32 @@ const jetbrains = JetBrains_Mono({
   display: "swap",
 });
 
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://devora-psi.vercel.app";
+
+const TITLE = "Zeeshan Khan — Freelance Software Engineer";
+const DESCRIPTION =
+  "Solo software builder shipping working POS, booking, ERP and WhatsApp bot systems for small businesses. Every product on this portfolio is a live interactive demo — open one and use it.";
+
 export const metadata: Metadata = {
-  title: "Zeeshan Khan — Freelance Software Engineer",
-  description:
-    "Solo software builder shipping working POS, booking, ERP and WhatsApp bot systems for small businesses. Every product on this portfolio is a live interactive demo — open one and use it.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: TITLE,
+    template: "%s · Zeeshan Khan",
+  },
+  description: DESCRIPTION,
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: "Zeeshan Khan",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 };
 
 export default function RootLayout({
