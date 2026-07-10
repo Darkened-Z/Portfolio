@@ -496,7 +496,7 @@ export default function Home() {
                       style={{ borderColor: "rgba(30, 28, 23, 0.16)" }}
                     >
                       <span className="font-mono-label">
-                        Case studies · coming soon
+                        Selective · one build per quarter
                       </span>
                       <Link
                         href="#contact"
