@@ -291,8 +291,8 @@ export default function Home() {
                 <strong className="font-semibold text-[color:var(--cream)]">automations</strong>{" "}
                 and the{" "}
                 <strong className="font-semibold text-[color:var(--cream)]">websites</strong>{" "}
-                that tie them together. Every product on this page is a real
-                live demo — click it, break it, try to buy something.
+                that tie them together. Every build in the portfolio is a real
+                working product — open one and try it.
               </p>
 
               {/* Milestone strip */}

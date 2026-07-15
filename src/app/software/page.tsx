@@ -56,6 +56,14 @@ const externalClientLinks = [
 const referenceImplementations = [
   {
     n: "01",
+    href: "/pos",
+    name: "Point of Sale",
+    outcome:
+      "Ring up orders, take payment, print receipts, watch the sales log build itself. The same category as Devora POS — built as a capability sample.",
+    meta: "Restaurant · Counter service · Takeaway",
+  },
+  {
+    n: "02",
     href: "/money-tracker",
     name: "Money Tracker",
     outcome:
@@ -63,7 +71,7 @@ const referenceImplementations = [
     meta: "Solo owner · Freelancer · Studio",
   },
   {
-    n: "02",
+    n: "03",
     href: "/erp",
     name: "ERP / Business Manager",
     outcome:
