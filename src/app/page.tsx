@@ -23,20 +23,51 @@ type Demo = {
 const softwareDemos: Demo[] = [
   {
     n: "01",
-    href: "https://demo.gym.goxx.app/",
-    name: "Demo Gym",
-    outcome:
-      "Front-desk + member portal for a neighbourhood gym. Live client work.",
-    meta: "Gym · Karachi",
+    href: "https://devora.pos.goxx.app/login",
+    name: "Devora POS",
+    outcome: "Restaurant point-of-sale — orders, kitchen tickets, sales log. Live for a real client.",
+    meta: "Restaurant · Karachi",
     external: true,
     live: true,
   },
   {
     n: "02",
+    href: "https://demo.fuel.goxx.app/",
+    name: "Adil Fuel Supply",
+    outcome: "Daily ledger for a fuel supply operation — replaces three notebooks a week.",
+    meta: "Fuel supply · Karachi",
+    external: true,
+    live: true,
+  },
+  {
+    n: "03",
+    href: "https://demo.gym.goxx.app/",
+    name: "Demo Gym",
+    outcome: "Front-desk + member portal for a neighbourhood gym — staff, payments, attendance.",
+    meta: "Gym · Karachi",
+    external: true,
+    live: true,
+  },
+  {
+    n: "04",
+    href: "/pos",
+    name: "Point of Sale",
+    outcome: "Ring up orders, take payment, print receipts — full capability sample.",
+    meta: "Restaurant · Counter service",
+  },
+  {
+    n: "05",
     href: "/money-tracker",
     name: "Money Tracker",
-    outcome: "Reference implementation — try in browser.",
+    outcome: "Categorised income + expenses, monthly dashboard, budget alerts.",
     meta: "Solo owner · Freelancer",
+  },
+  {
+    n: "06",
+    href: "/erp",
+    name: "ERP / Business Manager",
+    outcome: "Inventory, sales, staff and customers on one screen.",
+    meta: "Wholesale · Small manufacturing",
   },
 ];
 
@@ -439,7 +470,7 @@ export default function Home() {
             </div>
 
             {/* Right — portrait column (desktop only) */}
-            <aside className="col-span-12 hidden lg:col-span-5 lg:flex lg:flex-col lg:justify-start lg:pt-6">
+            <aside className="col-span-12 max-lg:hidden lg:col-span-5 lg:flex lg:flex-col lg:justify-start lg:pt-6">
               <div className="relative h-[600px] w-full overflow-hidden lg:h-[680px]">
                 <Image
                   src="/zeeshan.jpg"
@@ -577,7 +608,7 @@ export default function Home() {
                               aria-hidden
                               className="shrink-0 text-xs font-medium uppercase tracking-widest text-[color:var(--paper-ink)]/60 transition-transform duration-500 group-hover:translate-x-1"
                             >
-                              {demo.external ? "↗" : "→"}
+                              →
                             </span>
                           </>
                         );
