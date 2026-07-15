@@ -341,11 +341,11 @@ export default function Home() {
         {/* -------------------------------------------------------- */}
         {/* Hero — dark, two-column editorial layout                 */}
         {/* -------------------------------------------------------- */}
-        <section className="relative">
-          <div className="mx-auto grid max-w-[1400px] grid-cols-12 gap-x-3 gap-y-10 px-5 pb-24 pt-16 sm:px-8 md:pt-24 lg:gap-x-10">
+        <section className="relative overflow-hidden">
+          <div className="mx-auto grid max-w-[1400px] grid-cols-12 gap-x-6 px-5 pb-16 pt-10 sm:px-8 md:pt-16 lg:gap-x-8">
 
             {/* Left — text column */}
-            <div className="col-span-12 lg:col-span-7 lg:pt-8">
+            <div className="col-span-12 lg:col-span-7">
               {/* Ornate crest wordmark */}
               <div className="flex flex-col items-start gap-3">
                 <svg
@@ -372,7 +372,7 @@ export default function Home() {
                 </span>
               </div>
 
-              <h1 className="font-display mt-14 text-[clamp(2.25rem,7vw,6.5rem)] uppercase leading-[0.98] text-[color:var(--cream)]">
+              <h1 className="font-display mt-8 text-[clamp(2.25rem,7vw,6.5rem)] uppercase leading-[0.98] text-[color:var(--cream)]">
                 Scale
                 <br />
                 Your Business.
@@ -380,11 +380,11 @@ export default function Home() {
                 <span className="text-[color:var(--gold)]">Today.</span>
               </h1>
 
-              <p className="font-crest mt-8 max-w-[46ch] text-[clamp(0.7rem,2vw,1.25rem)] leading-[1.5] text-[color:var(--cream-3)] tracking-[0.16em] sm:tracking-[0.32em]">
+              <p className="font-crest mt-5 max-w-[46ch] text-[clamp(0.7rem,2vw,1.25rem)] leading-[1.5] text-[color:var(--cream-3)] tracking-[0.16em] sm:tracking-[0.32em]">
                 Software. Automation. Websites.
               </p>
 
-              <p className="mt-8 max-w-[54ch] text-[17px] leading-[1.75] text-[color:var(--cream-3)]">
+              <p className="mt-5 max-w-[54ch] text-[17px] leading-[1.75] text-[color:var(--cream-3)]">
                 Small businesses deserve more than notebooks. I build the
                 working software that lets a shop, salon or delivery kitchen{" "}
                 <strong className="font-semibold text-[color:var(--cream)]">
@@ -402,7 +402,7 @@ export default function Home() {
               </p>
 
               {/* Milestone strip */}
-              <div className="mt-12 border-y border-[color:var(--line)]">
+              <div className="mt-8 border-y border-[color:var(--line)]">
                 <dl className="grid grid-cols-2 divide-x divide-[color:var(--line)] sm:grid-cols-3 lg:grid-cols-5">
                   {[
                     {
@@ -433,7 +433,7 @@ export default function Home() {
                   ].map((m) => (
                     <div
                       key={m.value}
-                      className="flex flex-col gap-2 border-t border-[color:var(--line)] px-4 py-5 first:border-t-0 sm:border-t-0"
+                      className="flex flex-col gap-2 border-t border-[color:var(--line)] px-4 py-4 first:border-t-0 sm:border-t-0"
                     >
                       <dt
                         className={`font-display text-[clamp(1.5rem,2.4vw,2.25rem)] leading-none ${
@@ -452,7 +452,7 @@ export default function Home() {
                 </dl>
               </div>
 
-              <div className="mt-14 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-8">
+              <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-8">
                 <a
                   href="#work"
                   className="inline-flex items-center gap-3 bg-[color:var(--cream)] px-6 py-3.5 text-sm font-semibold uppercase tracking-[0.18em] text-[color:var(--ink)] transition-colors hover:bg-[color:var(--gold)]"
@@ -470,7 +470,7 @@ export default function Home() {
             </div>
 
             {/* Right — portrait column (desktop only) */}
-            <aside className="col-span-12 max-lg:hidden lg:col-span-5 lg:flex lg:flex-col lg:justify-start lg:pt-6">
+            <aside className="col-span-12 max-lg:hidden lg:col-span-5 lg:flex lg:flex-col lg:justify-start">
               <div className="relative h-[600px] w-full overflow-hidden lg:h-[680px]">
                 <Image
                   src="/zeeshan.jpg"
