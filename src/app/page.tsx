@@ -470,8 +470,8 @@ export default function Home() {
             </div>
 
             {/* Right — portrait column (desktop only) */}
-            <aside className="col-span-12 max-lg:hidden lg:col-span-5 lg:flex lg:flex-col lg:justify-start">
-              <div className="relative h-[600px] w-full overflow-hidden lg:h-[680px]">
+            <aside className="col-span-12 flex flex-col justify-start lg:col-span-5">
+              <div className="relative h-[340px] w-full overflow-hidden sm:h-[420px] lg:h-[680px]">
                 <Image
                   src="/zeeshan.jpg"
                   alt="Zeeshan Khan"
@@ -785,7 +785,7 @@ export default function Home() {
                 <span className="font-mono-label">Email</span>
                 <a
                   href="mailto:7eeshan.ahmad@gmail.com"
-                  className="font-display text-3xl uppercase leading-tight text-[color:var(--cream)] transition-colors hover:text-[color:var(--gold)] md:text-4xl"
+                  className="font-display break-all text-xl uppercase leading-tight text-[color:var(--cream)] transition-colors hover:text-[color:var(--gold)] md:text-3xl lg:text-4xl"
                 >
                   7eeshan.ahmad@gmail.com
                 </a>
