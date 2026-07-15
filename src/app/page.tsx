@@ -216,7 +216,7 @@ function SketchIcon({ kind }: { kind: string }) {
           fontSize="18"
           fill={stroke}
         >
-          Rs 350
+          $350
         </text>
         <path d="M52 52l6 4M162 52l6 4" {...common} opacity="0.6" />
         <path d="M50 138q40 12 120 0" {...common} opacity="0.4" />
@@ -784,10 +784,10 @@ export default function Home() {
               <div className="flex flex-col gap-3">
                 <span className="font-mono-label">Email</span>
                 <a
-                  href="mailto:7eeshan.ahmad@gmail.com"
+                  href="mailto:7eeshan.khan@gmail.com"
                   className="font-display break-all text-xl uppercase leading-tight text-[color:var(--cream)] transition-colors hover:text-[color:var(--gold)] md:text-3xl lg:text-4xl"
                 >
-                  7eeshan.ahmad@gmail.com
+                  7eeshan.khan@gmail.com
                 </a>
                 <span className="text-sm text-[color:var(--cream-4)]">
                   Two paragraphs on the process that keeps breaking. That is the whole brief.
