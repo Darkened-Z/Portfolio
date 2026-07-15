@@ -3,6 +3,7 @@ import Link from "next/link";
 import ProductShowcase, {
   type Product,
 } from "@/components/ProductShowcase";
+import ScrollToHash from "@/components/ScrollToHash";
 
 export const metadata: Metadata = {
   title: "Software work",
@@ -83,6 +84,7 @@ const referenceImplementations = [
 export default function SoftwarePage() {
   return (
     <div className="min-h-screen bg-[color:var(--ink)] text-[color:var(--cream)]">
+      <ScrollToHash />
       {/* ---------------------------------------------------------- */}
       {/* Header                                                      */}
       {/* ---------------------------------------------------------- */}
@@ -183,6 +185,7 @@ export default function SoftwarePage() {
                   {externalClientLinks.map((l) => (
                     <li
                       key={l.url}
+                      id={l.name.toLowerCase().replace(/\s+/g, "-")}
                       className="border border-[color:var(--line-strong)] bg-[color:var(--ink-2)] p-6"
                     >
                       <a

@@ -23,29 +23,26 @@ type Demo = {
 const softwareDemos: Demo[] = [
   {
     n: "01",
-    href: "https://devora.pos.goxx.app/login",
+    href: "/software#devora-pos",
     name: "Devora POS",
     outcome: "Restaurant point-of-sale — orders, kitchen tickets, sales log. Live for a real client.",
     meta: "Restaurant · Faisalabad",
-    external: true,
     live: true,
   },
   {
     n: "02",
-    href: "https://demo.fuel.goxx.app/",
+    href: "/software#adil-fuel-supply",
     name: "Adil Fuel Supply",
     outcome: "Daily ledger for a fuel supply operation — replaces three notebooks a week.",
     meta: "Fuel supply · Faisalabad",
-    external: true,
     live: true,
   },
   {
     n: "03",
-    href: "https://demo.gym.goxx.app/",
+    href: "/software#demo-gym",
     name: "Demo Gym",
     outcome: "Front-desk + member portal for a neighbourhood gym — staff, payments, attendance.",
     meta: "Gym · Faisalabad",
-    external: true,
     live: true,
   },
   {
