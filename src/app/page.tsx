@@ -469,21 +469,27 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right — portrait column (desktop only) */}
-            <aside className="col-span-12 flex flex-col justify-start lg:col-span-5">
-              <div className="relative h-[340px] w-full overflow-hidden sm:h-[420px] lg:h-[680px]">
+            {/* Portrait — top on mobile, right column on desktop */}
+            <aside className="order-first col-span-12 flex flex-col justify-start lg:order-none lg:col-span-5">
+              <div className="relative h-[220px] w-full overflow-hidden sm:h-[320px] lg:h-[680px]">
                 <Image
                   src="/zeeshan.jpg"
                   alt="Zeeshan Khan"
                   fill
-                  sizes="(min-width: 1024px) 38vw, 0vw"
+                  sizes="(min-width: 1024px) 38vw, 94vw"
                   className="object-cover object-top"
                   priority
                 />
-                {/* Gradient blends: left → ink, bottom → ink, top subtle */}
+                {/* Mobile: bottom fade only */}
                 <div
                   aria-hidden
-                  className="pointer-events-none absolute inset-0"
+                  className="pointer-events-none absolute inset-0 lg:hidden"
+                  style={{ background: "linear-gradient(to top, var(--ink) 0%, transparent 50%)" }}
+                />
+                {/* Desktop: left + bottom + top fades */}
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 hidden lg:block"
                   style={{
                     background:
                       "linear-gradient(to right, var(--ink) 0%, transparent 24%), " +
