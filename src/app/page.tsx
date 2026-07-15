@@ -683,15 +683,10 @@ export default function Home() {
             <span className="inline-flex items-center gap-2">
               <span className="dot-live" /> Booking July 2026
             </span>
-            <a href="#work" className="transition-colors hover:text-[color:var(--gold)]">
-              Work
-            </a>
-            <a href="#insights" className="transition-colors hover:text-[color:var(--gold)]">
-              Insights
-            </a>
-            <a href="#contact" className="transition-colors hover:text-[color:var(--gold)]">
-              Contact
-            </a>
+            <a href="#work" className="transition-colors hover:text-[color:var(--gold)]">Work</a>
+            <Link href="/software" className="transition-colors hover:text-[color:var(--gold)]">Software</Link>
+            <a href="#insights" className="transition-colors hover:text-[color:var(--gold)]">Insights</a>
+            <a href="#contact" className="transition-colors hover:text-[color:var(--gold)]">Contact</a>
           </div>
         </div>
       </footer>
