@@ -49,7 +49,7 @@ export default function ProductShowcase({ product }: { product: Product }) {
   };
 
   return (
-    <article className="flex flex-col overflow-hidden border border-[color:var(--line-strong)] bg-[color:var(--ink-2)]">
+    <article id={product.slug} className="flex flex-col overflow-hidden border border-[color:var(--line-strong)] bg-[color:var(--ink-2)]">
       {/* Preview surface */}
       <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-[color:var(--line)] bg-[color:var(--ink-3)]">
         {live ? (
