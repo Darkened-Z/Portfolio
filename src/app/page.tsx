@@ -368,7 +368,7 @@ export default function Home() {
                   Zeeshan Khan
                 </div>
                 <span className="crest-rule font-mono-label text-[color:var(--cream-4)]">
-                  Studio of One · Since 2023
+                  Studio of One · Since 2025
                 </span>
               </div>
 
@@ -406,7 +406,7 @@ export default function Home() {
                 <dl className="grid grid-cols-2 divide-x divide-[color:var(--line)] sm:grid-cols-3 lg:grid-cols-5">
                   {[
                     {
-                      value: "3+ YRS",
+                      value: "1+ YR",
                       label: "Engineering at Cybrix",
                       accent: false,
                     },
@@ -426,8 +426,8 @@ export default function Home() {
                       accent: false,
                     },
                     {
-                      value: "0",
-                      label: "Middlemen · Straight to the builder",
+                      value: "BSCS",
+                      label: "FAST NUCES · Computer Science",
                       accent: true,
                     },
                   ].map((m) => (
@@ -514,7 +514,7 @@ export default function Home() {
         <section className="border-y border-[color:var(--line)] bg-[color:var(--ink-2)]">
           <div className="mx-auto flex max-w-[1400px] flex-col items-start justify-between gap-4 px-8 py-6 md:flex-row md:items-center">
             <div className="font-mono-label">
-              Automation Engineer + Backend Developer @ Cybrix · Since 2023
+              Automation Engineer + Backend Developer @ Cybrix · Since 2025
             </div>
             <div className="font-mono-label">
               Freelance — software · automations · websites
