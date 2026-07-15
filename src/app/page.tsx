@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 /* ------------------------------------------------------------------ */
@@ -307,11 +308,13 @@ export default function Home() {
 
       <main id="top">
         {/* -------------------------------------------------------- */}
-        {/* Hero — dark, single-column editorial layout               */}
+        {/* Hero — dark, two-column editorial layout                 */}
         {/* -------------------------------------------------------- */}
         <section className="relative">
-          <div className="mx-auto max-w-[1100px] px-5 pb-24 pt-16 sm:px-8 md:pt-24">
-            <div className="lg:pt-8">
+          <div className="mx-auto grid max-w-[1400px] grid-cols-12 gap-x-3 gap-y-10 px-5 pb-24 pt-16 sm:px-8 md:pt-24 lg:gap-x-10">
+
+            {/* Left — text column */}
+            <div className="col-span-12 lg:col-span-7 lg:pt-8">
               {/* Ornate crest wordmark */}
               <div className="flex flex-col items-start gap-3">
                 <svg
@@ -324,7 +327,6 @@ export default function Home() {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 >
-                  {/* Stylised eagle/crest silhouette */}
                   <path d="M60 8 L52 22 L36 20 L46 32 L28 36 L48 42 L36 56 L60 46 L84 56 L72 42 L92 36 L74 32 L84 20 L68 22 Z" />
                   <path d="M60 46 L60 70" />
                   <path d="M52 64 L60 70 L68 64" />
@@ -339,7 +341,7 @@ export default function Home() {
                 </span>
               </div>
 
-              <h1 className="font-display mt-14 text-[clamp(2.25rem,10vw,6.5rem)] uppercase leading-[0.98] text-[color:var(--cream)]">
+              <h1 className="font-display mt-14 text-[clamp(2.25rem,7vw,6.5rem)] uppercase leading-[0.98] text-[color:var(--cream)]">
                 Scale
                 <br />
                 Your Business.
@@ -435,6 +437,42 @@ export default function Home() {
                 </a>
               </div>
             </div>
+
+            {/* Right — portrait column (desktop only) */}
+            <aside className="col-span-12 hidden lg:col-span-5 lg:flex lg:flex-col lg:justify-start lg:pt-6">
+              <div className="relative h-[600px] w-full overflow-hidden lg:h-[680px]">
+                <Image
+                  src="/zeeshan.jpg"
+                  alt="Zeeshan Khan"
+                  fill
+                  sizes="(min-width: 1024px) 38vw, 0vw"
+                  className="object-cover object-top"
+                  priority
+                />
+                {/* Gradient blends: left → ink, bottom → ink, top subtle */}
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(to right, var(--ink) 0%, transparent 24%), " +
+                      "linear-gradient(to top, var(--ink) 0%, transparent 42%), " +
+                      "linear-gradient(to bottom, var(--ink) 0%, transparent 14%)",
+                  }}
+                />
+                {/* Slight dark tint to desaturate the blue sky */}
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 bg-[color:var(--ink)]/15"
+                />
+                {/* Available badge */}
+                <div className="absolute bottom-6 right-6">
+                  <span className="font-mono-label inline-flex items-center gap-2 text-[color:var(--cream-4)]">
+                    <span className="dot-live" /> Available · 2026
+                  </span>
+                </div>
+              </div>
+            </aside>
 
           </div>
         </section>
