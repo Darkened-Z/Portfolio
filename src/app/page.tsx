@@ -54,9 +54,82 @@ const automationDemos: Demo[] = [
     outcome: "Customers book themselves in. Zero double-bookings.",
     meta: "Salon · Clinic · Trades",
   },
+  {
+    n: "03",
+    href: "https://github.com/Darkened-Z/auto-blog-posting",
+    name: "Auto Blog Posting",
+    outcome:
+      "Batch-posts content to WordPress with media management and SEO verification. Runs unattended.",
+    meta: "Python · PowerShell · WordPress",
+    external: true,
+  },
+  {
+    n: "04",
+    href: "https://github.com/Darkened-Z/wc26-automation",
+    name: "WC26 Automation",
+    outcome:
+      "Scheduled workflow automation built for the 2026 World Cup content cycle.",
+    meta: "Automation · Scheduling · 2026",
+    external: true,
+  },
 ];
 
-const websiteDemos: Demo[] = [];
+const websiteDemos: Demo[] = [
+  {
+    n: "01",
+    href: "https://nexus-clinic.com/",
+    name: "Nexus Clinic",
+    outcome:
+      "Award-winning aesthetic clinic — doctor-led skin, hair and weight-loss treatments in KL.",
+    meta: "Daiki Media · Aesthetic · KL",
+    external: true,
+  },
+  {
+    n: "02",
+    href: "https://launchlaundry.com.my/",
+    name: "Launch Laundry",
+    outcome:
+      "Commercial laundry equipment and end-to-end laundromat setup across Malaysia.",
+    meta: "Daiki Media · Commercial · MY",
+    external: true,
+  },
+  {
+    n: "03",
+    href: "https://www.holidayidea.com.my/",
+    name: "Holiday Idea",
+    outcome:
+      "Affordable customised holiday packages worldwide — browse and book in one place.",
+    meta: "Daiki Media · Travel · MY",
+    external: true,
+  },
+  {
+    n: "04",
+    href: "https://cybrix.uk/",
+    name: "Cybrix",
+    outcome:
+      "Social and content studio for startups — brand presence from pre-seed to Series B.",
+    meta: "Personal · Agency · UK",
+    external: true,
+  },
+  {
+    n: "05",
+    href: "https://www.adadesign.com.au/",
+    name: "AD Design",
+    outcome:
+      "Architectural design across NSW — residential, medical and industrial buildings.",
+    meta: "Personal · Architecture · AU",
+    external: true,
+  },
+  {
+    n: "06",
+    href: "https://www.furnishings.com.my/",
+    name: "Furnishing Solutions",
+    outcome:
+      "Premium vinyl flooring for Malaysian homes — supplied and professionally installed.",
+    meta: "Personal · Interiors · MY",
+    external: true,
+  },
+];
 
 const competencies = [
   {
@@ -67,13 +140,13 @@ const competencies = [
   },
   {
     label: "Workflow Automation",
-    body: "WhatsApp bots, integrations, the invisible plumbing that makes system A talk to system B. Backend work that saves hours per week.",
+    body: "WhatsApp bots, WordPress pipelines, scheduled workflows. The invisible plumbing that saves hours per week — written once, runs forever.",
     icon: "automation",
     demos: automationDemos,
   },
   {
     label: "Functional Websites",
-    body: "Landing pages, portfolios, small commerce. Hand-written, fast, no page-builder tax. Shipped in a week — not a quarter.",
+    body: "Six live sites — three built during an internship at Daiki Media, three for personal clients. Fast, hand-written, no page-builder tax.",
     icon: "website",
     demos: websiteDemos,
   },
