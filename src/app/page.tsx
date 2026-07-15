@@ -26,7 +26,7 @@ const softwareDemos: Demo[] = [
     href: "https://devora.pos.goxx.app/login",
     name: "Devora POS",
     outcome: "Restaurant point-of-sale — orders, kitchen tickets, sales log. Live for a real client.",
-    meta: "Restaurant · Karachi",
+    meta: "Restaurant · Faisalabad",
     external: true,
     live: true,
   },
@@ -35,7 +35,7 @@ const softwareDemos: Demo[] = [
     href: "https://demo.fuel.goxx.app/",
     name: "Adil Fuel Supply",
     outcome: "Daily ledger for a fuel supply operation — replaces three notebooks a week.",
-    meta: "Fuel supply · Karachi",
+    meta: "Fuel supply · Faisalabad",
     external: true,
     live: true,
   },
@@ -44,7 +44,7 @@ const softwareDemos: Demo[] = [
     href: "https://demo.gym.goxx.app/",
     name: "Demo Gym",
     outcome: "Front-desk + member portal for a neighbourhood gym — staff, payments, attendance.",
-    meta: "Gym · Karachi",
+    meta: "Gym · Faisalabad",
     external: true,
     live: true,
   },
@@ -818,7 +818,7 @@ export default function Home() {
               <div className="flex flex-col gap-3 md:items-end md:text-right">
                 <span className="font-mono-label">Elsewhere</span>
                 <a
-                  href="https://www.linkedin.com/in/zeeshan-khan"
+                  href="https://www.linkedin.com/in/zeeshan-khan-00bb372ab/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-display text-3xl uppercase leading-tight text-[color:var(--cream)] transition-colors hover:text-[color:var(--gold)] md:text-4xl"

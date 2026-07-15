@@ -26,7 +26,7 @@ const clientProducts: Product[] = [
     screenshot: "/work/devora-pos.png",
     credentials: { user: "admin@demo", pass: "admin123" },
     stack: ["Next.js", "Node", "PostgreSQL"],
-    clientLabel: "Restaurant · Karachi",
+    clientLabel: "Restaurant · Faisalabad",
   },
   {
     slug: "adil-fuel-supply",
@@ -38,7 +38,7 @@ const clientProducts: Product[] = [
     url: "https://demo.fuel.goxx.app/",
     screenshot: "/work/demo-fuel.png",
     stack: ["Next.js", "PostgreSQL"],
-    clientLabel: "Fuel supply · Karachi",
+    clientLabel: "Fuel supply · Faisalabad",
   },
 ];
 
@@ -47,7 +47,7 @@ const externalClientLinks = [
     name: "Demo Gym",
     outcome:
       "Front-desk + member portal for a neighbourhood gym. Staff run reception, payments, attendance and reports; members sign in with a code only.",
-    meta: "Gym · Karachi · Bilingual EN / اردو",
+    meta: "Gym · Faisalabad · Bilingual EN / اردو",
     url: "https://demo.gym.goxx.app/",
     stack: ["Next.js", "PostgreSQL", "i18n"],
   },
