@@ -346,30 +346,50 @@ export default function Home() {
 
             {/* Left — text column */}
             <div className="col-span-12 lg:col-span-7">
-              {/* Ornate crest wordmark */}
-              <div className="flex flex-col items-start gap-3">
-                <svg
-                  aria-hidden
-                  viewBox="0 0 120 80"
-                  className="h-16 w-24 text-[color:var(--cream)]"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M60 8 L52 22 L36 20 L46 32 L28 36 L48 42 L36 56 L60 46 L84 56 L72 42 L92 36 L74 32 L84 20 L68 22 Z" />
-                  <path d="M60 46 L60 70" />
-                  <path d="M52 64 L60 70 L68 64" />
-                  <circle cx="55" cy="20" r="1.2" fill="currentColor" />
-                  <circle cx="65" cy="20" r="1.2" fill="currentColor" />
-                </svg>
-                <div className="font-crest text-2xl text-[color:var(--cream)]">
-                  Zeeshan Khan
+              {/* Ornate crest wordmark — row with passport portrait on mobile */}
+              <div className="flex items-start justify-between gap-4">
+                <div className="flex flex-col items-start gap-3">
+                  <svg
+                    aria-hidden
+                    viewBox="0 0 120 80"
+                    className="h-16 w-24 text-[color:var(--cream)]"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M60 8 L52 22 L36 20 L46 32 L28 36 L48 42 L36 56 L60 46 L84 56 L72 42 L92 36 L74 32 L84 20 L68 22 Z" />
+                    <path d="M60 46 L60 70" />
+                    <path d="M52 64 L60 70 L68 64" />
+                    <circle cx="55" cy="20" r="1.2" fill="currentColor" />
+                    <circle cx="65" cy="20" r="1.2" fill="currentColor" />
+                  </svg>
+                  <div className="font-crest text-2xl text-[color:var(--cream)]">
+                    Zeeshan Khan
+                  </div>
+                  <span className="crest-rule font-mono-label text-[color:var(--cream-4)]">
+                    Studio of One · Since 2025
+                  </span>
                 </div>
-                <span className="crest-rule font-mono-label text-[color:var(--cream-4)]">
-                  Studio of One · Since 2025
-                </span>
+
+                {/* Mobile-only passport photo — sits in front of text, next to wordmark */}
+                <div className="relative h-[120px] w-[90px] flex-shrink-0 overflow-hidden border border-[color:var(--line)]/30 lg:hidden">
+                  <Image
+                    src="/zeeshan.jpg"
+                    alt="Zeeshan Khan"
+                    fill
+                    sizes="90px"
+                    className="object-cover"
+                    style={{ objectPosition: "center 75%" }}
+                    priority
+                  />
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0"
+                    style={{ background: "linear-gradient(to bottom, transparent 55%, var(--ink) 100%)" }}
+                  />
+                </div>
               </div>
 
               <h1 className="font-display mt-8 text-[clamp(2.25rem,7vw,6.5rem)] uppercase leading-[0.98] text-[color:var(--cream)]">
@@ -469,27 +489,22 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Portrait — top on mobile, right column on desktop */}
-            <aside className="order-first col-span-12 flex flex-col justify-start lg:order-none lg:col-span-5">
-              <div className="relative h-[220px] w-full overflow-hidden sm:h-[320px] lg:h-[680px]">
+            {/* Right — portrait column (desktop only) */}
+            <aside className="col-span-12 max-lg:hidden lg:col-span-5 lg:flex lg:flex-col lg:justify-start">
+              <div className="relative h-[680px] w-full overflow-hidden">
                 <Image
                   src="/zeeshan.jpg"
                   alt="Zeeshan Khan"
                   fill
-                  sizes="(min-width: 1024px) 38vw, 94vw"
-                  className="object-cover object-top"
+                  sizes="38vw"
+                  className="object-cover"
+                  style={{ objectPosition: "center 75%" }}
                   priority
                 />
-                {/* Mobile: bottom fade only */}
+                {/* Gradient blends: left + bottom + top into --ink */}
                 <div
                   aria-hidden
-                  className="pointer-events-none absolute inset-0 lg:hidden"
-                  style={{ background: "linear-gradient(to top, var(--ink) 0%, transparent 50%)" }}
-                />
-                {/* Desktop: left + bottom + top fades */}
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute inset-0 hidden lg:block"
+                  className="pointer-events-none absolute inset-0"
                   style={{
                     background:
                       "linear-gradient(to right, var(--ink) 0%, transparent 24%), " +
