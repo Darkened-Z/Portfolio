@@ -66,6 +66,14 @@ const softwareDemos: Demo[] = [
     outcome: "Inventory, sales, staff and customers on one screen.",
     meta: "Wholesale · Small manufacturing",
   },
+  {
+    n: "07",
+    href: "https://github.com/Darkened-Z/Hara-Bazar",
+    name: "Hara Bazaar",
+    outcome: "Multi-vendor grocery marketplace — sellers list products, riders bid on deliveries, customers order COD.",
+    meta: "Marketplace · Faisalabad",
+    external: true,
+  },
 ];
 
 const automationDemos: Demo[] = [
