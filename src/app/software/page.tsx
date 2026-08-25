@@ -52,6 +52,14 @@ const externalClientLinks = [
     url: "https://demo.gym.goxx.app/",
     stack: ["Next.js", "PostgreSQL", "i18n"],
   },
+  {
+    name: "Devora Bakery",
+    outcome:
+      "Bakery POS variant — retail counter, weight-based pricing, six-step custom-cake wizard with deposits and calendar, two-branch stock with transfers, standing wholesale orders, day-old flip, loyalty stamp cards.",
+    meta: "Bakery · Two-branch · Custom cakes",
+    url: "https://bakery.pos.goxx.app/",
+    stack: ["React", "Vite", "Tailwind", "Zustand"],
+  },
 ];
 
 const referenceImplementations = [
