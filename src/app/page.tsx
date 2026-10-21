@@ -68,10 +68,10 @@ const softwareDemos: Demo[] = [
   },
   {
     n: "07",
+    href: "/software#hara-bazaar",
     name: "Hara Bazaar",
-    outcome: "Multi-vendor grocery marketplace — sellers list products, riders bid on deliveries, customers order COD.",
+    outcome: "Grocery marketplace with customer, seller, rider and admin sides. Try it live.",
     meta: "Marketplace · Faisalabad",
-    external: true,
   },
   {
     n: "08",

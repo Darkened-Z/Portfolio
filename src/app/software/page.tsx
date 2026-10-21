@@ -45,6 +45,19 @@ const clientProducts: Product[] = [
 
 const productDemos: Product[] = [
   {
+    slug: "hara-bazaar",
+    name: "Hara Bazaar",
+    tagline:
+      "A grocery marketplace with four sides: customers order, shops sell, riders deliver and an admin runs it all.",
+    description:
+      "Shops list products and handle orders, riders pick up and mark deliveries, customers pay cash on delivery. Other logins: seller 03001234567 / seller123, rider 03005555555 / rider123, customer 03211234567 / customer123.",
+    url: "https://hara-bazar.vercel.app/login",
+    screenshot: "/work/hara-bazar.png",
+    credentials: { user: "03009999999", pass: "admin123" },
+    stack: ["Marketplace", "4 roles", "Delivery"],
+    clientLabel: "Product demo · sample data",
+  },
+  {
     slug: "apex-front-desk",
     name: "Apex Fitness · Front Desk",
     tagline:
