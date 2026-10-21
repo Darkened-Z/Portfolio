@@ -10,7 +10,7 @@ import Link from "next/link";
 
 type Demo = {
   n: string;
-  href: string;
+  href?: string;
   name: string;
   outcome: string;
   meta: string;
@@ -68,7 +68,6 @@ const softwareDemos: Demo[] = [
   },
   {
     n: "07",
-    href: "https://github.com/Darkened-Z/Hara-Bazar",
     name: "Hara Bazaar",
     outcome: "Multi-vendor grocery marketplace — sellers list products, riders bid on deliveries, customers order COD.",
     meta: "Marketplace · Faisalabad",
@@ -100,7 +99,6 @@ const automationDemos: Demo[] = [
   },
   {
     n: "03",
-    href: "https://github.com/Darkened-Z/auto-blog-posting",
     name: "Auto Blog Posting",
     outcome:
       "Batch-posts content to WordPress with media management and SEO verification. Runs unattended.",
@@ -109,10 +107,10 @@ const automationDemos: Demo[] = [
   },
   {
     n: "04",
-    href: "https://github.com/Darkened-Z/wc26-automation",
+    href: "https://www.instagram.com/match.day.26/",
     name: "WC26 Automation",
     outcome:
-      "Scheduled workflow automation built for the 2026 World Cup content cycle.",
+      "Posted lineups, half-time, full-time and standings for every 2026 World Cup match across four platforms. Zero manual posts.",
     meta: "Automation · Scheduling · 2026",
     external: true,
   },
@@ -651,17 +649,21 @@ export default function Home() {
                                 </span>
                               </span>
                             </span>
-                            <span
-                              aria-hidden
-                              className="shrink-0 text-xs font-medium uppercase tracking-widest text-[color:var(--paper-ink)]/60 transition-transform duration-500 group-hover:translate-x-1"
-                            >
-                              →
-                            </span>
+                            {demo.href && (
+                              <span
+                                aria-hidden
+                                className="shrink-0 text-xs font-medium uppercase tracking-widest text-[color:var(--paper-ink)]/60 transition-transform duration-500 group-hover:translate-x-1"
+                              >
+                                →
+                              </span>
+                            )}
                           </>
                         );
                         return (
-                          <li key={demo.href}>
-                            {demo.external ? (
+                          <li key={demo.name}>
+                            {!demo.href ? (
+                              <div className={rowClass}>{inner}</div>
+                            ) : demo.external ? (
                               <a
                                 href={demo.href}
                                 target="_blank"
