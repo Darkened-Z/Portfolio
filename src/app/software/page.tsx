@@ -45,6 +45,19 @@ const clientProducts: Product[] = [
 
 const productDemos: Product[] = [
   {
+    slug: "weaving-erp",
+    name: "Weaving Mill ERP",
+    tagline:
+      "A full ERP for a weaving mill. Contracts, looms, beams, daily production, stock and complete accounting. 200+ screens.",
+    description:
+      "Follows the work through the mill: yarn comes in, gets warped onto beams, runs on looms, and every despatch posts to the accounts by itself. 90+ reports, task management, and print-ready bills and contracts.",
+    url: "https://erp-weaving.vercel.app/login",
+    screenshot: "/work/weaving-erp.png",
+    credentials: { user: "demo", pass: "demo123" },
+    stack: ["Manufacturing", "ERP", "Accounting"],
+    clientLabel: "Product demo · sample data",
+  },
+  {
     slug: "hara-bazaar",
     name: "Hara Bazaar",
     tagline:

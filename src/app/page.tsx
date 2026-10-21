@@ -75,6 +75,13 @@ const softwareDemos: Demo[] = [
   },
   {
     n: "08",
+    href: "/software#weaving-erp",
+    name: "Weaving Mill ERP",
+    outcome: "Contracts, looms, production, stock and full accounting for a weaving mill. 200+ screens, try it live.",
+    meta: "Manufacturing · Product demo",
+  },
+  {
+    n: "09",
     href: "/software#apex-front-desk",
     name: "Apex Fitness Suite",
     outcome: "Gym front desk, trainer portal and an AI coach app for members. Try all three live.",
