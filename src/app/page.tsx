@@ -74,6 +74,13 @@ const softwareDemos: Demo[] = [
     meta: "Marketplace · Faisalabad",
     external: true,
   },
+  {
+    n: "08",
+    href: "/software#apex-front-desk",
+    name: "Apex Fitness Suite",
+    outcome: "Gym front desk, trainer portal and an AI coach app for members. Try all three live.",
+    meta: "Gym · Product demo",
+  },
 ];
 
 const automationDemos: Demo[] = [
@@ -165,6 +172,20 @@ const websiteDemos: Demo[] = [
       "Premium vinyl flooring for Malaysian homes — supplied and professionally installed.",
     meta: "Personal · Interiors · MY",
     external: true,
+  },
+  {
+    n: "07",
+    href: "/software#lumina",
+    name: "Lumina",
+    outcome: "Real-estate platform with search, listings, a mortgage calculator and saved homes.",
+    meta: "Product demo · Real estate",
+  },
+  {
+    n: "08",
+    href: "/software#olea",
+    name: "Olea",
+    outcome: "Restaurant site with online ordering, table bookings and an owner dashboard.",
+    meta: "Product demo · Restaurant",
   },
 ];
 

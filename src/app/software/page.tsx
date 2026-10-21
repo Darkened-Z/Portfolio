@@ -43,6 +43,71 @@ const clientProducts: Product[] = [
   },
 ];
 
+const productDemos: Product[] = [
+  {
+    slug: "apex-front-desk",
+    name: "Apex Fitness · Front Desk",
+    tagline:
+      "Gym management for the front desk. Members, payments, attendance, staff and reports in one place.",
+    description:
+      "Scan a member card, take a payment, open the entry gate. Separate men's and women's sections, overdue alerts and a chart for every number the owner asks about.",
+    url: "https://gym-demo-drab.vercel.app",
+    screenshot: "/work/apex-frontdesk.png",
+    credentials: { user: "admin", pass: "admin123" },
+    stack: ["Gym", "Front desk", "Reports"],
+    clientLabel: "Product demo · sample data",
+  },
+  {
+    slug: "apex-coach",
+    name: "Apex Fitness · Trainer Portal",
+    tagline:
+      "Each trainer sees their members, sessions this week and what they have earned this month.",
+    description:
+      "Pick a trainer on the login screen and enter the PIN. Shares its members with the front desk so both sides see the same gym.",
+    url: "https://apex-coach-rust.vercel.app",
+    screenshot: "/work/apex-coach.png",
+    credentials: { user: "Bilal Ahmed", pass: "1101" },
+    stack: ["Gym", "Trainers", "Earnings"],
+    clientLabel: "Product demo · sample data",
+  },
+  {
+    slug: "apex-fit",
+    name: "Apex Fitness · AI Coach",
+    tagline:
+      "A member app where four AI agents plan workouts, meals and track progress toward the member's goal.",
+    description:
+      "Opens straight into a member's dashboard. Today's workout, calorie and macro targets, a weight trend and a projected date to hit the goal.",
+    url: "https://apex-fit-black.vercel.app",
+    screenshot: "/work/apex-fit.png",
+    stack: ["AI agents", "Members", "Nutrition"],
+    clientLabel: "Product demo · sample data",
+  },
+  {
+    slug: "lumina",
+    name: "Lumina",
+    tagline:
+      "A real-estate platform. Search and filter homes, detailed listings, a mortgage calculator and saved homes.",
+    description:
+      "Built for an agency that wants buyers to find the right home fast, with an owner dashboard behind it for managing listings.",
+    url: "https://lumina-alpha-rose.vercel.app",
+    screenshot: "/work/lumina.png",
+    stack: ["Real estate", "Listings", "Dashboard"],
+    clientLabel: "Product demo · sample data",
+  },
+  {
+    slug: "olea",
+    name: "Olea",
+    tagline:
+      "A restaurant site that takes orders and table bookings, with an owner dashboard for both.",
+    description:
+      "Guests see the menu, order in and reserve a table. The owner sees today's orders and bookings in one place.",
+    url: "https://olea-two.vercel.app",
+    screenshot: "/work/olea.png",
+    stack: ["Restaurant", "Ordering", "Reservations"],
+    clientLabel: "Product demo · sample data",
+  },
+];
+
 const externalClientLinks = [
   {
     name: "Demo Gym",
@@ -144,9 +209,9 @@ export default function SoftwarePage() {
               </h1>
               <p className="mt-8 max-w-[58ch] text-lg leading-[1.75] text-[color:var(--cream-3)]">
                 Registers, dashboards, ERPs, internal tools — hand-written for
-                the exact shape of one business. Three products currently
-                running in production for real clients, plus a couple of
-                reference implementations you can try live in the browser.
+                the exact shape of one business. Products running in
+                production for real clients, plus full product demos you can
+                try live in the browser.
               </p>
             </div>
           </div>
@@ -233,6 +298,38 @@ export default function SoftwarePage() {
                 </ul>
               </div>
             )}
+          </div>
+        </section>
+
+        {/* -------------------------------------------------------- */}
+        {/* Product demos with embed windows                          */}
+        {/* -------------------------------------------------------- */}
+        <section className="border-b border-[color:var(--line)]">
+          <div className="mx-auto max-w-[1400px] px-5 py-20 sm:px-8 md:py-28">
+            <div className="grid grid-cols-12 gap-6 pb-12">
+              <div className="col-span-12 md:col-span-4">
+                <div className="font-mono-label text-[color:var(--gold)]">
+                  Product demos
+                </div>
+              </div>
+              <div className="col-span-12 md:col-span-8">
+                <h2 className="font-display text-[clamp(1.75rem,4vw,3rem)] uppercase leading-[1.05] text-[color:var(--cream)]">
+                  Full products,
+                  <br />
+                  running on sample data.
+                </h2>
+                <p className="mt-6 max-w-[54ch] text-base leading-relaxed text-[color:var(--cream-3)]">
+                  Click &ldquo;Try live&rdquo; to use one right here, or open
+                  it in its own tab. Nothing you do touches real data.
+                </p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10">
+              {productDemos.map((p) => (
+                <ProductShowcase key={p.slug} product={p} />
+              ))}
+            </div>
           </div>
         </section>
 
