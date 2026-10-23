@@ -359,12 +359,21 @@ export default function Home() {
             </a>
           </nav>
 
-          <a
-            href="#contact"
-            className="hidden sm:inline-flex link-underline text-sm font-medium text-[color:var(--cream)]"
-          >
-            Send a brief
-          </a>
+          <div className="hidden items-center gap-6 sm:flex">
+            <a
+              href="/Zeeshan-Khan-CV.pdf"
+              download
+              className="link-underline text-sm font-medium text-[color:var(--cream-3)] transition-colors hover:text-[color:var(--gold)]"
+            >
+              Download CV
+            </a>
+            <a
+              href="#contact"
+              className="link-underline text-sm font-medium text-[color:var(--cream)]"
+            >
+              Send a brief
+            </a>
+          </div>
         </div>
       </header>
 
@@ -516,6 +525,13 @@ export default function Home() {
                   className="link-underline text-sm font-medium tracking-wide text-[color:var(--cream-3)]"
                 >
                   Or send a brief →
+                </a>
+                <a
+                  href="/Zeeshan-Khan-CV.pdf"
+                  download
+                  className="link-underline text-sm font-medium tracking-wide text-[color:var(--cream-3)]"
+                >
+                  Download CV ↓
                 </a>
               </div>
             </div>
@@ -862,6 +878,16 @@ export default function Home() {
                 </a>
                 <span className="text-sm text-[color:var(--cream-4)]">
                   For the slower conversations.
+                </span>
+                <a
+                  href="/Zeeshan-Khan-CV.pdf"
+                  download
+                  className="font-display mt-4 text-3xl uppercase leading-tight text-[color:var(--cream)] transition-colors hover:text-[color:var(--gold)] md:text-4xl"
+                >
+                  Download CV ↓
+                </a>
+                <span className="text-sm text-[color:var(--cream-4)]">
+                  Two pages, every project with a live demo.
                 </span>
               </div>
             </div>
